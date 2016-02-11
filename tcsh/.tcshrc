@@ -53,4 +53,8 @@ alias hello 'echo; echo "              Hello there";echo; cat ~/.ascii'
 alias ll 'ls -l'
 alias la 'ls -a'
 
+#######################
+#Environment variables
+
+setenv EDITOR '/usr/bin/vim'
 
