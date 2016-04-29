@@ -73,8 +73,8 @@ super + ctrl + {1-9}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,window -d} ^{1-9,10}
 
-~button1
-	bspc pointer -g focus
+#~button1
+#	bspc pointer -g focus
 
 super + button{1-3}
 	; bspc pointer -g {move,resize_side,resize_corner}
@@ -102,6 +102,9 @@ super + space
 super + Escape
 	pkill -USR1 -x sxhkd
 
+super + x
+	xterm -T "archlinux - Xterm"
+
 
 # Top row keys 
 # Try make that motherfucking volume work
@@ -112,9 +115,4 @@ XF86Audio{Raise,Lower}Volume
 
 XF86MonBrightness{Up,Down}
     xbacklight {+,-}5%
-
-
-
-
-
 
