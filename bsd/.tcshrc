@@ -32,11 +32,13 @@ alias :wq 'exit'
 
 # This adds colours to things like ls and grep
 
+alias ls 'ls -G'
 
 # This makes your screen red bro
 alias night 'xflux -l -36.85 -g 174.8 > /dev/null'
 
-
+alias ll 'ls -lG'
+alias la 'ls -aG'
 
 # Here are some other additions to keep me sane
 alias free 'free -m'
@@ -51,7 +53,7 @@ alias battery 'upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E 
 #######################
 #Environment variables
 
-setenv EDITOR '/usr/bin/vim'
+setenv EDITOR '/usr/local/bin/vim'
 
 alias free 'free -m'
 
