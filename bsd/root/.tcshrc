@@ -45,13 +45,13 @@ alias pydie 'pkill python'
 
 alias hello 'echo; echo "              Hello there";echo; cat ~/.ascii'
 
-alias ll 'ls -l'
-alias la 'ls -a'
+alias ll 'ls -lG'
+alias la 'ls -aG'
 
 #######################
 #Environment variables
 
-setenv EDITOR '/usr/bin/vim'
+setenv EDITOR '/usr/local/bin/vim'
 
 alias free 'free -m'
 
