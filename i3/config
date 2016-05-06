@@ -35,6 +35,8 @@ bindsym $mod+Return exec xfce4-terminal
 # kill focused window
 bindsym $mod+w kill
 
+# Bind nautilus
+bindsym $mod+n exec nautilus
 # Bind chrome
 bindsym $mod+c exec google-chrome-stable
 # start dmenu (a program launcher)
