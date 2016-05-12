@@ -55,6 +55,7 @@ alias battery 'upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E 
 
 alias ll 'ls -l'
 alias la 'ls -a'
+alias lal 'ls -al'
 
 #######################
 #Environment variables
