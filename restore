@@ -1,0 +1,126 @@
+#!/bin/bash 
+
+#####################################################
+# This script is designed to restore my commonly    #
+# used config files by symbolically linking them    #
+# from the current directory to the target location	#
+# This works locally in a Linux based OS.           #
+#####################################################
+
+# Creation of environment variables...
+
+MYHOME="$HOME"
+DOTDIR=`pwd`
+
+# Create the .config directory if it doesn't
+# already exist in home
+
+if [ ! -d "$MYHOME"/.config ];
+then
+	mkdir "$MYHOME"/.config
+fi
+
+#####################################################
+
+#####   ####  ####  #   #
+  #	   #      #     #	#
+  #    #      ####  #####
+  #    #         #  #	#
+  #     ####  ####  #	#
+
+#####################################################
+
+# This handles the check for my .tcshrc
+
+if [ -f "$MYHOME"/.tcshrc ];
+then 
+	rm -r "$MYHOME"/.tcshrc
+	echo "Cleaning up old .tcshrc"
+fi
+
+# This creates the symbolic link for my .tcshrc
+
+echo -e "Creating symbolic link for .tcshrc... \n"
+ln -s "$DOTDIR"/.tcshrc "$HOME"/.tcshrc
+
+#####################################################
+
+#     #  #   #    #
+ #   #   #  # #  # #
+  # #    # 	#  #   #
+   #     # 	#      #
+
+#####################################################
+
+# This handles the check for my .vimrc
+
+if [ -f "$MYHOME"/.vimrc ];
+then 
+	rm -r "$MYHOME"/.vimrc
+	echo "Cleaning up old .vimrc"
+fi
+
+# This creates the symbolic link for my .vimrc
+
+echo -e "Creating symbolic link for .vimrc...\n"
+ln -s "$DOTDIR"/.vimrc "$HOME"/.vimrc
+
+#####################################################
+
+# This handles the check for my .vim/ directory
+
+if [ -d "$MYHOME"/.vim ];
+then 
+	rm -r "$MYHOME"/.vim
+	echo "Cleaning up old .vim directory"
+fi
+
+# This creates the symbolic link for my .tcshrc
+
+echo -e "Creating symbolic link for .vim/...\n"
+ln -s "$DOTDIR"/.vim "$HOME"/.vim
+
+#####################################################
+
+ ####   #  #####
+#       #    #
+#  	#   #	 #
+ ####   #	 #
+
+#####################################################
+
+# This handles the check for my .gitconfig
+
+if [ -f "$MYHOME"/.gitconfig ];
+then 
+	rm -r "$MYHOME"/.gitconfig
+	echo "Cleaning up old .gitconfig..."
+fi
+
+# This creates the symbolic link for my .gitconfig
+
+echo -e "Creating symbolic link for .gitconfig/...\n"
+ln -s "$DOTDIR"/.gitconfig "$HOME"/.gitconfig
+
+#####################################################
+
+# This handles the check for my .git/ directory
+
+if [ -d "$MYHOME"/.git ];
+then 
+	rm -r "$MYHOME"/.git
+	echo "Cleaning up old .git directory"
+fi
+
+# This creates the symbolic link for my .git directory
+
+echo -e "Creating symbolic link for .git/... \n"
+ln -s "$DOTDIR"/.git "$HOME"/.git
+
+#####################################################
+
+# Unsetting environment variables / cleaning up
+
+unset MYHOME
+unset DOTDIR
+
