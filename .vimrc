@@ -5,7 +5,7 @@
 
 syntax on
 set number
-set relativenumber
+" set relativenumber # FUCK I CAN'T DEAL
 set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 
 " Remember to set this to the colour of your terminal
