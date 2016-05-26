@@ -6,7 +6,6 @@ All files in the directory are designed to be placed in $HOME/.config/ except th
 
 My current means for keeping this updated with my latest copies of my files is by cloning this into a directory and symbolically linking the files from that directory to their respective locations.
 
-I am thinking of writing a script that removes all the hard work out of setting up a new OS that implements the symbolic links required to get it working.
-
+My current update script works just swimmingly for all the things I really want it to work for immeadiately. As of yet it only works on Linux due to some differences in config files etc. associated with BSD operating systems. 
 It is pretty sloppy and the commits are all over the place because my mood is always changing but clone it anyway to make me feel good. 
 
