@@ -26,3 +26,12 @@ colorscheme solarized
 " xfce4 terminal
 set t_Co=16
 
+" Here I disabled the arrow keys so that I use hjkl
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
