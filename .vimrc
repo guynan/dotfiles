@@ -11,6 +11,7 @@ set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 " Remember to set this to the colour of your terminal
 " not what you think the colours should be
 "
+"let g:solarized_termcolors=256
 set background=dark
 
 " This adds virtual line navigation as opposed 
@@ -18,4 +19,10 @@ set background=dark
 
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+
+" To set the colorscheme 
+colorscheme solarized
+" This next line is to force compatibility with
+" xfce4 terminal
+set t_Co=16
 
