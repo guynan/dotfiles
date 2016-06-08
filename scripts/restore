@@ -7,6 +7,15 @@
 # This works locally in a Linux based OS.           #
 #####################################################
 
+# Establish the platform you are working on
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+elif [[ "$unamestr" == 'FreeBSD' ]]; then
+   platform='freebsd'
+fi
+
 # Creation of environment variables...
 
 MYHOME="$HOME"
@@ -42,10 +51,15 @@ then
 	echo "Cleaning up old .tcshrc"
 fi
 
+if [[ ! $platform == 'linux' ]]; 
+then
+	ln -s "$DOTDIR"/shell/.tcshrc "$MYHOME"/.tcshrc
+else
+	ln -s "$DOTDIR"/shell/.tcshrc_bsd "$MYHOME"/.tcshrc
+fi
 # This creates the symbolic link for my .tcshrc
 
 echo -e "Creating symbolic link for .tcshrc... \n"
-ln -s "$DOTDIR"/shell/.tcshrc "$MYHOME"/.tcshrc
 
 #####################################################
 
@@ -188,3 +202,5 @@ ln -s "$DOTDIR"/wm/sxhkd "$HOME"/.config/sxhkd
 unset MYHOME
 unset DOTDIR
 unset CURRDIR
+unset unamestr
+unset platform
