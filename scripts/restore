@@ -104,7 +104,7 @@ fi
 # This creates the symbolic link for my .gitconfig
 
 echo -e "Creating symbolic link for .gitconfig/...\n"
-ln -s "$DOTDIR"/.gitconfig "$HOME"/.gitconfig
+ln -s "$DOTDIR"/git/.gitconfig "$HOME"/.gitconfig
 
 ######################################################
 
@@ -119,7 +119,7 @@ fi
 # This creates the symbolic link for my .gitconfig
 
 echo -e "Creating symbolic link for .gitignore_global/...\n"
-ln -s "$DOTDIR"/.gitignore_global "$HOME"/.gitignore_global
+ln -s "$DOTDIR"/git/.gitignore_global "$HOME"/.gitignore_global
 
 ####################################################
 # THIS IS FUCKING STUPID DON'T DO THIS
