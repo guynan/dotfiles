@@ -1,0 +1,20 @@
+#!/bin/bash 
+
+#####################################################
+# This script is designed to restore my home	    #
+# attributes. These are typically symbolic links    #
+# and directory creation. This should only be 		#
+# performed after a new installation.	            #
+#####################################################
+
+# Creation of environment variables...
+
+MYHOME="$HOME"
+DOTDIR=`pwd`
+
+if [ ! -d "$MYHOME"/src ];
+then
+		ln -s /usr/local/src "$MYHOME"/src 
+fi
+
+
