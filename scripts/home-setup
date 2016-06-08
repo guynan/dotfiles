@@ -12,9 +12,14 @@
 MYHOME="$HOME"
 DOTDIR=`pwd`
 
-if [ ! -d "$MYHOME"/src ];
+# Create a link from the source code directory in $home
+if [ ! -d "$MYHOME"/src ] || [ ! -L "$MYHOME"/src ];
 then
 		ln -s /usr/local/src "$MYHOME"/src 
 fi
 
-
+# Create a dotfile directory in home
+if [ ! -d "$MYHOME"/dotfiles ] || [ ! -L "$MYHOME"/dotfiles ];
+then
+		ln -s "$DOTDIR" "$MYHOME"/dotfiles 
+fi

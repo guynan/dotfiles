@@ -67,7 +67,7 @@ fi
 # This creates the symbolic link for my .vimrc
 
 echo -e "Creating symbolic link for .vimrc...\n"
-ln -s "$DOTDIR"/.vimrc "$HOME"/.vimrc
+ln -s "$DOTDIR"/vim/.vimrc "$HOME"/.vimrc
 
 #####################################################
 
@@ -82,7 +82,7 @@ fi
 # This creates the symbolic link for my .tcshrc
 
 echo -e "Creating symbolic link for .vim/...\n"
-ln -s "$DOTDIR"/.vim "$HOME"/.vim
+ln -s "$DOTDIR"/vim/.vim "$HOME"/.vim
 
 #####################################################
 

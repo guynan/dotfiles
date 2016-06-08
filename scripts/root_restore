@@ -31,7 +31,7 @@ DOTDIR=`pwd`
 
 # This handles the check for my .tcshrc
 
-if [ -f "$MYHOME"/.tcshrc ];
+if [ -L "$MYHOME"/.tcshrc ] || [ -f "$MYHOME"/.tcshrc ];
 then 
 	rm -r "$MYHOME"/.tcshrc
 	echo "Cleaning up old .tcshrc"
