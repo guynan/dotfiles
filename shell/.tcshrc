@@ -43,6 +43,7 @@ alias grep 'grep --color=auto'
 alias fgrep 'fgrep --color=auto'
 alias egrep 'egrep --color=auto'
 
+# Other helpfuls
 alias lal 'ls -al'
 alias ll 'ls -l'
 alias la 'ls -a'
