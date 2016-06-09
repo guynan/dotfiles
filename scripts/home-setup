@@ -10,7 +10,8 @@
 # Creation of environment variables...
 
 MYHOME="$HOME"
-DOTDIR=`pwd`
+CURRDIR=`pwd`
+DOTDIR="$(dirname "$CURRDIR")"
 
 # Create a link from the source code directory in $home
 if [ ! -d "$MYHOME"/src ] || [ ! -L "$MYHOME"/src ];
