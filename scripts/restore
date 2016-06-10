@@ -30,6 +30,7 @@ DOTDIR="$(dirname "$CURRDIR")"
 if [ -f /etc/redhat-release ]
 then 
 	DISTRO="fedora"
+fi
 if [ -d /etc/pacman.d/ ]
 then
 	DISTRO="arch-linux"
@@ -224,3 +225,4 @@ unset CURRDIR
 unset unamestr
 unset platform
 unset DISTRO
+
