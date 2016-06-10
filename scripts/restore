@@ -13,9 +13,9 @@
 # Establish the platform you are working on
 platform='unknown'
 unamestr=`uname`
-if [[ "$unamestr" == 'Linux' ]]; then
+if [ "$unamestr" == 'Linux' ]; then
    platform='linux'
-elif [[ "$unamestr" == 'FreeBSD' ]]; then
+elif [ "$unamestr" == 'FreeBSD' ]; then
    platform='freebsd'
 fi
 
