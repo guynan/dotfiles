@@ -1,5 +1,8 @@
 #!/bin/bash 
 
+# Written by Guy Nankivell, 2016
+# Released under the 3 clause BSD license
+
 #####################################################
 # This script is designed to restore my commonly    #
 # used config files by symbolically linking them    #
@@ -21,6 +24,16 @@ fi
 MYHOME="$HOME"
 CURRDIR=`pwd`
 DOTDIR="$(dirname "$CURRDIR")"
+
+# Distro detection
+
+if [ -f /etc/redhat-release ]
+then 
+	DISTRO="fedora"
+if [ -d /etc/pacman.d/ ]
+then
+	DISTRO="arch-linux"
+fi
 
 # This is a global check for my config directory
 # Create the .config directory if it doesn't
@@ -51,14 +64,20 @@ then
 	echo "Cleaning up old .tcshrc"
 fi
 
-if [[ ! $platform == 'linux' ]]; 
+# This creates the symbolic link for my .tcshrc
+# Trying for a bit of os dependence
+
+if [[  $platform == 'linux' ]]; 
 then
 	ln -s "$DOTDIR"/shell/.tcshrc "$MYHOME"/.tcshrc
 else
 	ln -s "$DOTDIR"/shell/.tcshrc_bsd "$MYHOME"/.tcshrc
 fi
-# This creates the symbolic link for my .tcshrc
 
+# Important to source it so changes take effect without
+# logging into the shell again
+
+source "$MYHOME"/.tcshrc
 echo -e "Creating symbolic link for .tcshrc... \n"
 
 #####################################################
@@ -204,3 +223,4 @@ unset DOTDIR
 unset CURRDIR
 unset unamestr
 unset platform
+unset DISTRO
