@@ -11,3 +11,5 @@ set   white="%{\033[0;37m%}"
 set     end="%{\033[0m%}" 
 
 set prompt="%B%m%b ${white}%c${red} #${end} "
+
+unset red green yellow blue magenta cyan yellow white end
