@@ -47,6 +47,11 @@ then
 	rm -r "$MYHOME"/.tcshrc
 	echo "Cleaning up old .tcshrc"
 fi
+
+if [ -L "$MYHOME"/.tcsh_root_profile ] || [ -f "$MYHOME"/.tcsh_root_profile ];
+then 
+	rm -r "$MYHOME"/.tcsh_root_profile
+fi
 ln -s "$DOTDIR"/shell/.tcshrc "$MYHOME"/.tcshrc
 ln -s "$DOTDIR"/shell/.tcsh_root_profile "$MYHOME"/.tcsh_root_profile
 
