@@ -93,6 +93,9 @@ set prompt="%B%m%b ${white}%c${cyan} >${end} "
 # Clean up after ourselves...
 unset red green yellow blue magenta cyan yellow white end
 
+if ( -f $HOME/.tcsh_root_profile) then
+	source $HOME/.tcsh_root_profile
+endif
 # This adds x.flux functionality, approbatory to Auckland
 #set checkxflux="(ps ax | pgrep xflux)"
 #if ( "$checkxflux" ); then
