@@ -19,14 +19,14 @@
 #set histfile = ~/.tcsh_history 
 
 # Good idea to define the OS maybe
-setenv UNAMESTR `uname`
+set UNAMESTR=`uname`
 
 if ( "$UNAMESTR" == 'Linux' ) then
-	setenv PLATFORM 'linux'
+	set PLATFORM='linux'
 else if ( "$UNAMESTR" == 'FreeBSD') then
-	setenv PLATFORM 'bsd'
+	set PLATFORM='bsd'
 else if ( "$UNAMESTR" == 'Dragonfly' ) then
-	setenv PLATFORM 'bsd'
+	set PLATFORM='bsd'
 endif
 
 #######################
