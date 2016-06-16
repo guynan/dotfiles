@@ -1,3 +1,5 @@
+" Guy Nankivell, 2016
+
 " This is my .vimrc. Pretty much a work in 
 " progress as I learn what suits my workflow
 " best. I do intend this to be well documented.
