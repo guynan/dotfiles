@@ -64,6 +64,7 @@ alias la 'ls -a'
 alias free 'free -m'
 alias vol 'alsamixer'
 alias b '/bin/bash'
+alias pingu 'ping www.google.com'
 
 alias pydie 'pkill python'
 
