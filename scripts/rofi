@@ -1,0 +1,3 @@
+ln -s /usr/local/src/dotfiles/wm/rofi/ /home/guy/.config/rofi
+
+rofi -show run -lines 6 -hide-scrollbar -opacity "100" -config /home/guy/.config/rofi/rofi.conf
