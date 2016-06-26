@@ -70,9 +70,9 @@ fi
 
 if [[  $platform == 'linux' ]]; 
 then
-	ln -s "$DOTDIR"/shell/.tcshrc "$MYHOME"/.tcshrc
+	ln -s "$DOTDIR"/shell/tcsh/.tcshrc "$MYHOME"/.tcshrc
 else
-	ln -s "$DOTDIR"/shell/.tcshrc_bsd "$MYHOME"/.tcshrc
+	ln -s "$DOTDIR"/shell/tcsh/.tcshrc_bsd "$MYHOME"/.tcshrc
 fi
 
 # Important to source it so changes take effect without
