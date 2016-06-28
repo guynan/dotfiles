@@ -111,6 +111,41 @@ set prompt="%B%m%b ${white}%c${cyan} >${end} "
 # /root and so only root gets these modifications. At the 
 # moment it is only mods to the prompt.
 
+# Completions
+complete cd 'C/*/d/'
+complete rmdir 'C/*/d/'
+
+complete alias 'p/1/a/'
+complete unalias 'p/1/a/'
+complete unset 'p/1/s/'
+complete set 'p/1/s/'
+complete unsetenv 'p/1/e/'
+complete setenv 'p/1/e/'
+complete limit 'p/1/l/'
+complete bindkey 'C/*/b/'
+complete chgrp 'p/1/g/'
+complete chown 'p/1/u/' # TODO Support user:group completion
+complete uncomplete 'p/*/X/'
+
+#complete kill 'c/-/S/' 'p/1/(-)//'
+complete kill 'c/-/S/' 'n/*/`ps -axco pid= | sort`/'
+complete pkill 'c/-/S/' 'n/*/`ps -axco command= | sort -u`/'
+
+complete python 'p/*/f:*.py/'
+complete perl 'p/*/f:*.[pP][lL]/'
+#complete sh 'p/*/f:*.sh/'
+
+# set a list of hosts
+complete ssh 'p@1@`cut -d " " -f 1 ~/.ssh/known_hosts | sort -u`@'
+#
+
+# Use available commands as arguments
+# complete which 'p/1/c/'
+# complete where 'p/1/c/'
+# complete man 'p/1/c/'
+# complete apropos 'p/1/c/'
+#
+
 if ( -f $HOME/.tcsh_root_profile) then
 	source $HOME/.tcsh_root_profile
 endif
