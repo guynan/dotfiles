@@ -102,14 +102,6 @@ set     end="%{\033[0m%}" # Don't fuck with this line
 
 set prompt="%B%m%b ${white}%c${cyan} >${end} "
 
-# Think I got this from here
-# http://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907171
-
-# The "tcsh_root_profile" is a file I added in the root
-# directory of all my OS. Every time the .tcshrc is sourced
-# it goes looking for this file. Obviously it is only in
-# /root and so only root gets these modifications. At the 
-# moment it is only mods to the prompt.
 
 # Completions
 complete cd 'C/*/d/'
@@ -137,7 +129,6 @@ complete perl 'p/*/f:*.[pP][lL]/'
 
 # set a list of hosts
 complete ssh 'p@1@`cut -d " " -f 1 ~/.ssh/known_hosts | sort -u`@'
-#
 
 # Use available commands as arguments
 # complete which 'p/1/c/'
@@ -146,9 +137,16 @@ complete ssh 'p@1@`cut -d " " -f 1 ~/.ssh/known_hosts | sort -u`@'
 # complete apropos 'p/1/c/'
 #
 
+# The "tcsh_root_profile" is a file I added in the root
+# directory of all my OS. Every time the .tcshrc is sourced
+# it goes looking for this file. Obviously it is only in
+# /root and so only root gets these modifications. At the 
+# moment it is only mods to the prompt.
+
 if ( -f $HOME/.tcsh_root_profile) then
 	source $HOME/.tcsh_root_profile
 endif
+
 
 # Clean up after ourselves...
 unset red green yellow blue magenta cyan yellow white end
