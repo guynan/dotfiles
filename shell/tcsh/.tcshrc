@@ -73,6 +73,9 @@ alias battery 'upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E 
 # This makes your screen red bro
 alias night 'xflux -l -36.85 -g 174.8 > /dev/null'
 
+# BTRFS
+alias mksubvol 'btrfs subvolume create'
+
 # This adds x.flux functionality, approbatory to Auckland
 #set checkxflux="(ps ax | pgrep xflux)"
 #if ( "$checkxflux" ); then
