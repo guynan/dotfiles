@@ -61,7 +61,7 @@ fi
 if [ -L "$MYHOME"/.tcshrc ] || [ -f "$MYHOME"/.tcshrc ];
 then 
 	rm -r "$MYHOME"/.tcshrc
-	echo "Cleaning up old .tcshrc"
+#	echo "Cleaning up old .tcshrc"
 fi
 
 # This creates the symbolic link for my .tcshrc
@@ -79,8 +79,8 @@ fi
 # Sends debug messages to the appropriate 
 # logging location of /dev/null
 
-source "$MYHOME"/.tcshrc > /dev/null
-echo -e "Creating symbolic link for .tcshrc... \n"
+#source "$MYHOME"/.tcshrc > /dev/null
+#echo -e "Creating symbolic link for .tcshrc... \n"
 
 #####################################################
 # __     _____ __  __ 
@@ -96,12 +96,12 @@ echo -e "Creating symbolic link for .tcshrc... \n"
 if [ -f "$MYHOME"/.vimrc ] || [ -L "$MYHOME"/.vimrc ];
 then 
 	rm -r "$MYHOME"/.vimrc
-	echo "Cleaning up old .vimrc"
+#	echo "Cleaning up old .vimrc"
 fi
 
 # This creates the symbolic link for my .vimrc
 
-echo -e "Creating symbolic link for .vimrc...\n"
+#echo -e "Creating symbolic link for .vimrc...\n"
 ln -s "$DOTDIR"/vim/.vimrc "$HOME"/.vimrc
 
 #####################################################
@@ -111,12 +111,12 @@ ln -s "$DOTDIR"/vim/.vimrc "$HOME"/.vimrc
 if [ -d "$MYHOME"/.vim ] || [ -L "$MYHOME"/.vim ];
 then 
 	rm -r "$MYHOME"/.vim
-	echo "Cleaning up old .vim directory"
+#	echo "Cleaning up old .vim directory"
 fi
 
 # This creates the symbolic link for my .tcshrc
 
-echo -e "Creating symbolic link for .vim/...\n"
+#echo -e "Creating symbolic link for .vim/...\n"
 ln -s "$DOTDIR"/vim/.vim "$HOME"/.vim
 
 #####################################################
@@ -133,12 +133,12 @@ ln -s "$DOTDIR"/vim/.vim "$HOME"/.vim
 if [ -f "$MYHOME"/.gitconfig ] || [ -L "$MYHOME"/.gitconfig ];
 then 
 	rm -r "$MYHOME"/.gitconfig
-	echo "Cleaning up old .gitconfig..."
+#	echo "Cleaning up old .gitconfig..."
 fi
 
 # This creates the symbolic link for my .gitconfig
 
-echo -e "Creating symbolic link for .gitconfig/...\n"
+#echo -e "Creating symbolic link for .gitconfig/...\n"
 ln -s "$DOTDIR"/git/.gitconfig "$HOME"/.gitconfig
 
 ######################################################
@@ -148,12 +148,12 @@ ln -s "$DOTDIR"/git/.gitconfig "$HOME"/.gitconfig
 if [ -f "$MYHOME"/.gitignore_global ] || [ -L "$MYHOME"/.gitignore_global ];
 then 
 	rm -r "$MYHOME"/.gitignore_global
-	echo "Cleaning up old .gitignore_global..."
+#	echo "Cleaning up old .gitignore_global..."
 fi
 
 # This creates the symbolic link for my .gitconfig
 
-echo -e "Creating symbolic link for .gitignore_global/...\n"
+#echo -e "Creating symbolic link for .gitignore_global/...\n"
 ln -s "$DOTDIR"/git/.gitignore_global "$HOME"/.gitignore_global
 
 #####################################################
@@ -163,12 +163,12 @@ ln -s "$DOTDIR"/git/.gitignore_global "$HOME"/.gitignore_global
 if [ -d "$MYHOME"/.config/xfce4 ] || [ -L "$MYHOME"/.config/xfce4 ];
 then 
 	rm -r "$MYHOME"/.config/xfce4
-	echo "Cleaning up old xfce4 directory"
+#	echo "Cleaning up old xfce4 directory"
 fi
 
 # This creates the symbolic link for my .git directory
 
-echo -e "Creating symbolic link for .xfce4/... \n"
+#echo -e "Creating symbolic link for .xfce4/... \n"
 ln -s "$DOTDIR"/xfce4 "$HOME"/.config/xfce4
 
 #####################################################
@@ -186,12 +186,12 @@ ln -s "$DOTDIR"/xfce4 "$HOME"/.config/xfce4
 if [ -d "$MYHOME"/.config/i3 ] || [ -L "$MYHOME"/.config/i3 ];
 then 
 	rm -r "$MYHOME"/.config/i3
-	echo "Cleaning up old compton directory"
+#	echo "Cleaning up old compton directory"
 fi
 
 # This creates the symbolic link for my .git directory
 
-echo -e "Creating symbolic link for i3/... \n"
+#echo -e "Creating symbolic link for i3/... \n"
 ln -s "$DOTDIR"/wm/i3 "$HOME"/.config/i3
 
 #####################################################
@@ -201,12 +201,12 @@ ln -s "$DOTDIR"/wm/i3 "$HOME"/.config/i3
 if [ -d "$MYHOME"/.config/bspwm ] || [ -L "$MYHOME"/.config/bspwm ];
 then 
 	rm -r "$MYHOME"/.config/bspwm
-	echo "Cleaning up old bspwm directory"
+#	echo "Cleaning up old bspwm directory"
 fi
 
 # This creates the symbolic link for my .git directory
 
-echo -e "Creating symbolic link for .bspwm/... \n"
+#echo -e "Creating symbolic link for .bspwm/... \n"
 ln -s "$DOTDIR"/wm/bspwm "$HOME"/.config/bspwm
 
 #####################################################
@@ -216,12 +216,12 @@ ln -s "$DOTDIR"/wm/bspwm "$HOME"/.config/bspwm
 if [ -d "$MYHOME"/.config/sxhkd ] || [ -L "$MYHOME"/.config/sxhkd ];
 then 
 	rm -r "$MYHOME"/.config/sxhkd
-	echo "Cleaning up old sxhkd directory"
+#	echo "Cleaning up old sxhkd directory"
 fi
 
 # This creates the symbolic link for my .git directory
 
-echo -e "Creating symbolic link for sxhkd/... \n"
+#echo -e "Creating symbolic link for sxhkd/... \n"
 ln -s "$DOTDIR"/wm/sxhkd "$HOME"/.config/sxhkd
 
 #####################################################
@@ -231,12 +231,12 @@ ln -s "$DOTDIR"/wm/sxhkd "$HOME"/.config/sxhkd
 if [ -d "$MYHOME"/.config/compton ] || [ -L "$MYHOME"/.config/compton ];
 then 
 	rm -r "$MYHOME"/.config/compton
-	echo "Cleaning up old compton directory"
+#	echo "Cleaning up old compton directory"
 fi
 
 # This creates the symbolic link for my .git directory
 
-echo -e "Creating symbolic link for compton/... \n"
+#echo -e "Creating symbolic link for compton/... \n"
 ln -s "$DOTDIR"/wm/compton "$HOME"/.config/compton
 
 #####################################################

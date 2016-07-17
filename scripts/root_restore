@@ -35,17 +35,17 @@ DOTDIR="$(dirname "$CURRDIR")"
 if [ -L "$"/.tcshrc ] || [ -f "$MYHOME"/.tcshrc ];
 then 
 	rm -r "$MYHOME"/.tcshrc
-	echo "Cleaning up old .tcshrc"
+#	echo "Cleaning up old .tcshrc"
 fi
 
 # This creates the symbolic link for my .tcshrc
 
-echo -e "Creating symbolic link for .tcshrc... \n"
+#echo -e "Creating symbolic link for .tcshrc... \n"
 
 if [ -L "$MYHOME"/.tcshrc ] || [ -f "$MYHOME"/.tcshrc ];
 then 
 	rm -r "$MYHOME"/.tcshrc
-	echo "Cleaning up old .tcshrc"
+#	echo "Cleaning up old .tcshrc"
 fi
 
 if [ -L "$MYHOME"/.tcsh_root_profile ] || [ -f "$MYHOME"/.tcsh_root_profile ];
@@ -69,12 +69,12 @@ ln -s "$DOTDIR"/shell/tcsh/.tcsh_root_profile "$MYHOME"/.tcsh_root_profile
 if [ -f "$MYHOME"/.vimrc ] || [ -L "$MYHOME"/.vimrc ];
 then 
 	rm -r "$MYHOME"/.vimrc
-	echo "Cleaning up old .vimrc"
+#	echo "Cleaning up old .vimrc"
 fi
 
 # This creates the symbolic link for my .vimrc
 
-echo -e "Creating symbolic link for .vimrc...\n"
+#echo -e "Creating symbolic link for .vimrc...\n"
 ln -s "$DOTDIR"/vim/.vimrc "$HOME"/.vimrc
 
 #####################################################
@@ -84,12 +84,12 @@ ln -s "$DOTDIR"/vim/.vimrc "$HOME"/.vimrc
 if [ -d "$MYHOME"/.vim ] || [ -L "$MYHOME"/.vim ];
 then 
 	rm -r "$MYHOME"/.vim
-	echo "Cleaning up old .vim directory"
+#	echo "Cleaning up old .vim directory"
 fi
 
 # This creates the symbolic link for my .tcshrc
 
-echo -e "Creating symbolic link for .vim/...\n"
+#echo -e "Creating symbolic link for .vim/...\n"
 ln -s "$DOTDIR"/vim/.vim "$HOME"/.vim
 
 
