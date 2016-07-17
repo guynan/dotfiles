@@ -24,3 +24,9 @@ if [ ! -d "$MYHOME"/dotfiles ] || [ ! -L "$MYHOME"/dotfiles ];
 then
 		ln -s "$DOTDIR" "$MYHOME"/dotfiles 
 fi
+
+# Create an etc directory in home
+if [ ! -d "$MYHOME"/etc ] || [ ! -L "$MYHOME"/etc ];
+then
+		ln -s $MYHOME/.config "$MYHOME"/etc 
+fi
