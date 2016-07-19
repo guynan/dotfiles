@@ -1,0 +1,37 @@
+#!/bin/bash
+
+echo "Welcome to the 'do it all' for Fedora"
+
+echo "Installing your usual shit..."
+dnf -y install vim xfce4-terminal tcsh nitrogen xbacklight nautilus
+
+echo "Installing development tools..."
+dnf -y groupinstall "Development Tools"
+#https://github.com/windelicato/dotfiles/wiki/bspwm-for-dummies
+# bspwm
+
+echo "Installing dependencies for bspwm"
+dnf -y install xcb-util-devel xcb-util-keysyms-devel xcb-util-wm-devel alsa-lib-devel dmenu rxvt-unicode terminus-fonts
+
+echo "Installing dependencies for compton"
+dnf -y install libX11-devel libXcomposite-devel libXdamage-devel libXrender-devel libXext-devel libXrandr-devel libXinerama-devel 
+dnf -y install libconfig-devel dbus-devel mesa-libGL-devel pcre-devel asciidoc
+
+cd /usr/local/src/
+
+git clone https://github.com/chjj/compton.git
+git clone https://github.com/baskerville/bspwm.git
+git clone https://github.com/baskerville/sxhkd.git
+
+cd compton
+make
+make docs
+make install
+cd ../bspwm
+make; make install
+cp contrib/freedesktop/bspwm.desktop /usr/share/xsessions/ # so it is accessible in lightdm
+cd ../sxhkd
+make; make install
+
+cd ../
+dnf -y remove asciidoc #Stupid dependency
