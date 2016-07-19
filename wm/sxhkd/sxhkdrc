@@ -17,8 +17,8 @@ super + Return
 
 # program launcher
 super + space
-	rofi -show run -lines 6 -hide-scrollbar -opacity "100" -config /home/guy/.config/rofi/rofi.conf 
-	#dmenu_run -b -p "Arch Linux" -nb white -nf black -sb black -sf white
+#	rofi -show run -lines 6 -hide-scrollbar -opacity "100" -config /home/guy/.config/rofi/rofi.conf 
+	dmenu_run -b -p "Fedora" -nb white -nf black -sb black -sf white
 	
 # make sxhkd reload its configuration files:
 super + Escape
