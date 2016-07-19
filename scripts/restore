@@ -241,6 +241,16 @@ ln -s "$DOTDIR"/wm/compton "$HOME"/.config/compton
 
 #####################################################
 
+# This handles the check for my .Xresources 
+if [ -f "$MYHOME"/.Xresources ] || [ -L "$MYHOME"/.Xresources ];
+then 
+	rm -r "$MYHOME"/.Xresources
+fi
+# This creates the symbolic link for my .Xresources
+ln -s "$DOTDIR"/wm/X/.Xresources "$HOME"/.Xresources
+xrdb "$HOME"/.Xresources
+#####################################################
+
 # Unsetting environment variables / cleaning up
 
 unset MYHOME
