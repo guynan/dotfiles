@@ -155,4 +155,5 @@ endif
 unset red green yellow blue magenta cyan yellow white end
 unset UNAMESTR PLATFORM
 
+setenv PANEL_FIFO '/tmp/panel-fifo'
 
