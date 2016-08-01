@@ -260,3 +260,5 @@ unset unamestr
 unset platform
 unset DISTRO
 
+/bin/tcsh
+source "$HOME"/.tcshrc
