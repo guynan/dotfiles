@@ -16,6 +16,9 @@ set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 "let g:solarized_termcolors=256
 set background=dark
 
+" This allows modelines in vim
+set modeline
+
 " This adds virtual line navigation as opposed 
 " to the usual line by line vim method
 
