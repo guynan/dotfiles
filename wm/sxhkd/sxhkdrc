@@ -18,8 +18,7 @@ super + Return
 # program launcher
 super + space
 #	rofi -show run -lines 6 -hide-scrollbar -opacity "100" -config /home/guy/.config/rofi/rofi.conf 
-	dmenu_run -b -p "Fedora" -nb white -nf black -sb black -sf white
-	
+	dmenu_run -b -p "Fedora" -nb 'web gray' -nf black -sb black -sf 'web gray'	
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
