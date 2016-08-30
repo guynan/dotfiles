@@ -14,6 +14,7 @@ set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 " not what you think the colours should be
 "
 "let g:solarized_termcolors=256
+"set background=light
 set background=dark
 
 " This allows modelines in vim
