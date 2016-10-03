@@ -19,6 +19,9 @@ set background=dark
 
 " This allows modelines in vim
 set modeline
+" This is super helpful. Initialise by {{{ in comment
+" and terminate by }}} in another comment. 
+set foldmethod=marker 
 
 " This adds virtual line navigation as opposed 
 " to the usual line by line vim method
