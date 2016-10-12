@@ -44,3 +44,8 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+
+" This allows you to exit insert & visual mode by using `;;'
+imap ;; <Esc>
+vmap ;; <Esc>
