@@ -47,6 +47,9 @@ alias odoo9 'echo "Changing into work directory";\
 
 alias :wq 'exit'
 
+# This is fantastic; gives vim bindings in shell
+bindkey -v
+
 # This adds colours to things like ls and grep 
 # Let it be known this shit only works on Linux... # Fix for bsd coming
 
