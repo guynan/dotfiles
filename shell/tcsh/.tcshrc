@@ -53,15 +53,21 @@ bindkey -v
 # This adds colours to things like ls and grep 
 # Let it be known this shit only works on Linux... # Fix for bsd coming
 
-alias ls 'ls --color=auto'
+if ( $PLATFORM == 'linux' ) then
+		alias ls 'ls --color=auto'
+		alias lal 'ls -al'
+		alias ll 'ls -l'
+		alias la 'ls -a'
+
+else if ( $PLATFORM == 'bsd' ) then
+		alias ls 'ls -G'
+		alias lal 'ls -alG'
+		alias ll 'ls -lG'
+		alias la 'ls -aG'
+
 alias grep 'grep --color=auto'
 alias fgrep 'fgrep --color=auto'
 alias egrep 'egrep --color=auto'
-
-# Other helpfuls
-alias lal 'ls -al'
-alias ll 'ls -l'
-alias la 'ls -a'
 
 # Here are some other additions to keep me sane
 alias free 'free -m'
