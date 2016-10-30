@@ -27,6 +27,8 @@ else if ( "$UNAMESTR" == 'FreeBSD') then
 	set PLATFORM='bsd'
 else if ( "$UNAMESTR" == 'Dragonfly' ) then
 	set PLATFORM='bsd'
+else
+	set PLATFORM='bsd'
 endif
 
 #######################
@@ -64,6 +66,7 @@ else if ( $PLATFORM == 'bsd' ) then
 		alias lal 'ls -alG'
 		alias ll 'ls -lG'
 		alias la 'ls -aG'
+endif
 
 alias grep 'grep --color=auto'
 alias fgrep 'fgrep --color=auto'
