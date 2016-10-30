@@ -9,13 +9,13 @@ set nocompatible " Required for Vundle
 " Vundle stuff
 "
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+"Plugin 'VundleVim/Vundle.vim'
 "Plugin 'davidhalter/jedi-vim' " This is python autocomplete...
 
 " This is how to install the plugins `:PluginInstall'
@@ -23,8 +23,8 @@ Plugin 'VundleVim/Vundle.vim'
 " delete a plugin.
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+"call vundle#end()            " required
+"filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -79,12 +79,17 @@ nnoremap <C-H> <C-W><C-H>
 
 
 " This allows you to exit insert & visual mode by using `;;'
-imap ;; <Esc>
-vmap ;; <Esc>
+imap jj <Esc>
+"vmap ;; <Esc>
 
 
 " Language Specific indentation tab vs space etc...
 "
+" Default
+set tabstop=4
+set softtabstop=4
+set fileformat=unix
+
 " Python
 au BufNewFile,BufRead *.py,
     \ set tabstop=4 |
@@ -93,5 +98,14 @@ au BufNewFile,BufRead *.py,
     \ set textwidth=79 |
     \ set expandtab |
     \ set smartindent |
+    \ set fileformat=unix |
+
+au BufNewFile,BufRead *.c,*.h,
+    \ set smartindent |
+    \ set noexpandtab |
+	\ set tabstop=8 |
+    \ set shiftwidth=8 |
+    \ set softtabstop=8 |
+    \ set textwidth=79 |
     \ set fileformat=unix |
 
