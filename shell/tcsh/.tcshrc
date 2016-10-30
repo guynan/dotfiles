@@ -25,7 +25,7 @@ if ( "$UNAMESTR" == 'Linux' ) then
 	set PLATFORM='linux'
 else if ( "$UNAMESTR" == 'FreeBSD') then
 	set PLATFORM='bsd'
-else if ( "$UNAMESTR" == 'Dragonfly' ) then
+else if ( "$UNAMESTR" == 'DragonFly' ) then
 	set PLATFORM='bsd'
 endif
 
