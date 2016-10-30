@@ -1,10 +1,6 @@
+# tcshrc
 
 # Guy Nankivell, 2016
-
-#######################
-# This is my configuration file for tcsh
-# It is a work in progress
-#######################
 
 # Please read this for more details on OS dependent stuff!!!
 #
@@ -140,13 +136,16 @@ complete chgrp 'p/1/g/'
 complete chown 'p/1/u/' # TODO Support user:group completion
 complete uncomplete 'p/*/X/'
 
-#complete kill 'c/-/S/' 'p/1/(-)//'
 complete kill 'c/-/S/' 'n/*/`ps -axco pid= | sort`/'
 complete pkill 'c/-/S/' 'n/*/`ps -axco command= | sort -u`/'
 
+# Detect language files
 complete python 'p/*/f:*.py/'
+complete python3 'p/*/f:*.py/'
+complete cc 'p/*/f:*.[cao]/'
+complete gcc 'p/*/f:*.[cao]/'
 complete perl 'p/*/f:*.[pP][lL]/'
-#complete sh 'p/*/f:*.sh/'
+#complete sh 'p/*/f:*.sh/' # Useless
 
 # set a list of hosts
 complete ssh 'p@1@`cut -d " " -f 1 ~/.ssh/known_hosts | sort -u`@'
@@ -158,6 +157,13 @@ complete ssh 'p@1@`cut -d " " -f 1 ~/.ssh/known_hosts | sort -u`@'
 # complete apropos 'p/1/c/'
 #
 
+
+# Clean up after ourselves...
+unset red green yellow blue magenta cyan yellow white end
+unset UNAMESTR PLATFORM
+
+setenv PANEL_FIFO '/tmp/panel-fifo'
+
 # The "tcsh_root_profile" is a file I added in the root
 # directory of all my OS. Every time the .tcshrc is sourced
 # it goes looking for this file. Obviously it is only in
@@ -167,11 +173,3 @@ complete ssh 'p@1@`cut -d " " -f 1 ~/.ssh/known_hosts | sort -u`@'
 if ( -f $HOME/.tcsh_root_profile) then
 	source $HOME/.tcsh_root_profile
 endif
-
-
-# Clean up after ourselves...
-unset red green yellow blue magenta cyan yellow white end
-unset UNAMESTR PLATFORM
-
-setenv PANEL_FIFO '/tmp/panel-fifo'
-
