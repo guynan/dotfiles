@@ -77,7 +77,7 @@ else if ( $PLATFORM == 'obsd' ) then
 		unalias egrep 
 
 else if ( $PLATFORM == 'bsd' ) then
-		alias ls 'ls -G'
+		alias ls 'ls -IG'
 		alias lal 'ls -alG'
 		alias ll 'ls -lG'
 		alias la 'ls -aG'
