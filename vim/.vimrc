@@ -103,6 +103,7 @@ au BufNewFile,BufRead *.py,
 au BufNewFile,BufRead *.c,*.h,
     \ set smartindent |
     \ set noexpandtab |
+    \ set expandtab |
 	\ set tabstop=8 |
     \ set shiftwidth=8 |
     \ set softtabstop=8 |
