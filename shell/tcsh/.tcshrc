@@ -100,8 +100,9 @@ alias mksubvol 'btrfs subvolume create'
 
 # This adds x.flux functionality, approbatory to Auckland
 set checkxflux=`ps ax | pgrep xflux`
+set checkxfluxbin=`where xflux`
 
-if ( $checkxflux == "" ) then
+if ( $checkxflux == "" && $checkxfluxbin != "" ) then
 	xflux -l -36.85 -g 174.8 > /dev/null
 #else
 #	pkill xflux > /dev/null
@@ -176,6 +177,7 @@ endif
 # Clean up
 unset red green yellow blue magenta cyan yellow white end
 unset UNAMESTR PLATFORM
+unset checkxflux checkxfluxbin
 
 # Please read this for more details on OS dependent stuff
 # https://www.over-yonder.net/~fullermd/projects/tcshrc/.tcshrc
