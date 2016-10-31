@@ -88,11 +88,13 @@ alias night 'xflux -l -36.85 -g 174.8 > /dev/null'
 alias mksubvol 'btrfs subvolume create'
 
 # This adds x.flux functionality, approbatory to Auckland
-#set checkxflux="(ps ax | pgrep xflux)"
-#if ( "$checkxflux" ); then
-#	xflux -l -36.85 -g 174.8 > /dev/null
-#	exit 0
-#endif
+set checkxflux=`ps ax | pgrep xflux`
+
+if ( $checkxflux == "" ) then
+	xflux -l -36.85 -g 174.8 > /dev/null
+#else
+#	pkill xflux > /dev/null
+endif
 
 #
 # Prompt configurations
