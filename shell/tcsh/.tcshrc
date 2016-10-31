@@ -1,22 +1,5 @@
-
+# tcshrc
 # Guy Nankivell, 2016
-
-#######################
-# This is my configuration file for tcsh
-# It is a work in progress
-#######################
-
-# Please read this for more details on OS dependent stuff!!!
-#
-# https://www.over-yonder.net/~fullermd/projects/tcshrc/.tcshrc
-
-# Comment out this line if certain things turn to shit
-# as it could have an effect on something...
-#set autolist=ambiguous
-
-# This creates a history file as tcsh does not have one by default
-#set savehist = 2000 
-#set histfile = ~/.tcsh_history 
 
 # Good idea to define the OS maybe
 set UNAMESTR=`uname`
@@ -27,31 +10,50 @@ else if ( "$UNAMESTR" == 'FreeBSD') then
 	set PLATFORM='bsd'
 else if ( "$UNAMESTR" == 'DragonFly' ) then
 	set PLATFORM='bsd'
+else
+	set PLATFORM='bsd'
 endif
 
-#######################
-# Here are some aliases
-#######################
+#
+# Semantic tcsh settings
+#
 
-# These ones are for work
-alias odoo8 'echo "Changing into work directory" ;\
-					cd ~/work/odoo8/; echo "Pulling content";\
-					git pull; echo "Done!"'
-
-alias odoo9 'echo "Changing into work directory";\
-					cd ~/work/odoo9/; echo "Pulling content";\
-					git pull; echo "Done!"'
-
-# This one is to add vim-like exit to shell because cool
-# Possibly also my most used alias
-
-alias :wq 'exit'
+# This creates a history file as tcsh does not have one by default
+#set savehist = 2000 
+#set histfile = ~/.tcsh_history 
 
 # This is fantastic; gives vim bindings in shell
 bindkey -v
 
+# Allows for tab-completion 
+set autolist
+
+# Make sure the EDITOR is accurate
+if ($PLATFORM == bsd) then
+	setenv EDITOR '/usr/bin/vi'
+else
+	setenv EDITOR '/usr/bin/vim'
+endif
+
+#
+# Aliases
+#
+
+# This one is to add vim-like exit to shell because cool
+# Possibly also my most used alias
+alias :wq 'exit'
+
+# These ones are for work
+alias odoo8 'echo "Changing into work directory" ;\
+		cd ~/work/odoo8/; echo "Pulling content";\
+		git pull; echo "Done!"'
+
+alias odoo9 'echo "Changing into work directory";\
+		cd ~/work/odoo9/; echo "Pulling content";\
+		git pull; echo "Done!"'
+
 # This adds colours to things like ls and grep 
-# Let it be known this shit only works on Linux... # Fix for bsd coming
+# OS dependent stuff
 
 if ( $PLATFORM == 'linux' ) then
 		alias ls 'ls --color=auto'
@@ -64,6 +66,7 @@ else if ( $PLATFORM == 'bsd' ) then
 		alias lal 'ls -alG'
 		alias ll 'ls -lG'
 		alias la 'ls -aG'
+endif
 
 alias grep 'grep --color=auto'
 alias fgrep 'fgrep --color=auto'
@@ -74,7 +77,6 @@ alias free 'free -m'
 alias vol 'alsamixer'
 alias b '/bin/bash'
 alias pingu 'ping www.google.com'
-
 alias pydie 'pkill python'
 
 alias battery 'upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "percentage|to\ full" --color=never'
@@ -92,16 +94,10 @@ alias mksubvol 'btrfs subvolume create'
 #	exit 0
 #endif
 
+#
+# Prompt configurations
+#
 
-#######################
-#Environment variables
-#######################
-
-setenv EDITOR '/usr/bin/vim'
-
-# Configuring the prompt
-
-# Colors!
 set     red="%{\033[1;31m%}"
 set   green="%{\033[0;32m%}"
 set  yellow="%{\033[1;33m%}"
@@ -111,14 +107,11 @@ set    cyan="%{\033[1;36m%}"
 set   white="%{\033[0;37m%}"
 set     end="%{\033[0m%}" # Don't fuck with this line
 
-
 set prompt="%B%m%b ${white}%c${cyan} >${end} "
-
 
 # Completions
 complete cd 'C/*/d/'
 complete rmdir 'C/*/d/'
-
 complete alias 'p/1/a/'
 complete unalias 'p/1/a/'
 complete unset 'p/1/s/'
@@ -130,14 +123,16 @@ complete bindkey 'C/*/b/'
 complete chgrp 'p/1/g/'
 complete chown 'p/1/u/' # TODO Support user:group completion
 complete uncomplete 'p/*/X/'
-
-#complete kill 'c/-/S/' 'p/1/(-)//'
 complete kill 'c/-/S/' 'n/*/`ps -axco pid= | sort`/'
 complete pkill 'c/-/S/' 'n/*/`ps -axco command= | sort -u`/'
 
+# Detect language files
 complete python 'p/*/f:*.py/'
+complete python3 'p/*/f:*.py/'
+complete cc 'p/*/f:*.[cao]/'
+complete gcc 'p/*/f:*.[cao]/'
 complete perl 'p/*/f:*.[pP][lL]/'
-#complete sh 'p/*/f:*.sh/'
+#complete sh 'p/*/f:*.sh/' # Useless
 
 # set a list of hosts
 complete ssh 'p@1@`cut -d " " -f 1 ~/.ssh/known_hosts | sort -u`@'
@@ -145,9 +140,15 @@ complete ssh 'p@1@`cut -d " " -f 1 ~/.ssh/known_hosts | sort -u`@'
 # Use available commands as arguments
 # complete which 'p/1/c/'
 # complete where 'p/1/c/'
-# complete man 'p/1/c/'
+complete man 'p/1/c/'
 # complete apropos 'p/1/c/'
+
 #
+#Environment variables
+#
+
+# This is for Lemonbar
+setenv PANEL_FIFO '/tmp/panel-fifo'
 
 # The "tcsh_root_profile" is a file I added in the root
 # directory of all my OS. Every time the .tcshrc is sourced
@@ -159,10 +160,11 @@ if ( -f $HOME/.tcsh_root_profile) then
 	source $HOME/.tcsh_root_profile
 endif
 
-
-# Clean up after ourselves...
+# Clean up
 unset red green yellow blue magenta cyan yellow white end
 unset UNAMESTR PLATFORM
 
-setenv PANEL_FIFO '/tmp/panel-fifo'
+# Please read this for more details on OS dependent stuff
+# https://www.over-yonder.net/~fullermd/projects/tcshrc/.tcshrc
 
+# fi

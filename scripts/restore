@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/sh
 
 # Written by Guy Nankivell, 2016
 # Released under the 3 clause BSD license
@@ -6,17 +6,20 @@
 #####################################################
 # This script is designed to restore my commonly    #
 # used config files by symbolically linking them    #
-# from the current directory to the target location	#
-# This works locally in a Linux based OS.           #
+# from the current directory to the target location #
+# This works locally on most UNIX based OS          #
 #####################################################
 
 # Establish the platform you are working on
-platform='unknown'
 unamestr=`uname`
 if [ "$unamestr" == 'Linux' ]; then
-   platform='linux'
+   PLATFORM='linux'
 elif [ "$unamestr" == 'FreeBSD' ]; then
-   platform='freebsd'
+   PLATFORM='bsd'
+elif [ "$unamestr" == 'DragonFly' ]; then
+   PLATFORM='bsd'
+else
+	PLATFORM='bsd'
 fi
 
 # Creation of environment variables...
@@ -65,14 +68,7 @@ then
 fi
 
 # This creates the symbolic link for my .tcshrc
-# Trying for a bit of os dependence
-
-if [[  $platform == 'linux' ]]; 
-then
-	ln -s "$DOTDIR"/shell/tcsh/.tcshrc "$MYHOME"/.tcshrc
-else
-	ln -s "$DOTDIR"/shell/tcsh/.tcshrc_bsd "$MYHOME"/.tcshrc
-fi
+ln -s "$DOTDIR"/shell/tcsh/.tcshrc "$MYHOME"/.tcshrc
 
 # Important to source it so changes take effect without
 # logging into the shell again
@@ -248,7 +244,7 @@ then
 fi
 # This creates the symbolic link for my .Xresources
 ln -s "$DOTDIR"/wm/X/.Xresources "$HOME"/.Xresources
-xrdb "$HOME"/.Xresources
+#xrdb "$HOME"/.Xresources
 #####################################################
 
 # Unsetting environment variables / cleaning up
@@ -257,8 +253,9 @@ unset MYHOME
 unset DOTDIR
 unset CURRDIR
 unset unamestr
-unset platform
+unset PLATFORM
 unset DISTRO
+exit
 
 /bin/tcsh
 source "$HOME"/.tcshrc
