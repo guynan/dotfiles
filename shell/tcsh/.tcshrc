@@ -10,6 +10,8 @@ else if ( "$UNAMESTR" == 'FreeBSD') then
 	set PLATFORM='bsd'
 else if ( "$UNAMESTR" == 'DragonFly' ) then
 	set PLATFORM='bsd'
+else if ( "$UNAMESTR" == 'OpenBSD' ) then
+	set PLATFORM='obsd'
 else
 	set PLATFORM='bsd'
 endif
@@ -29,7 +31,7 @@ bindkey -v
 set autolist
 
 # Make sure the EDITOR is accurate
-if ($PLATFORM == bsd) then
+if ($PLATFORM == bsd || $PLATFORM == obsd) then
 	setenv EDITOR '/usr/bin/vi'
 else
 	setenv EDITOR '/usr/bin/vim'
@@ -52,6 +54,10 @@ alias odoo9 'echo "Changing into work directory";\
 		cd ~/work/odoo9/; echo "Pulling content";\
 		git pull; echo "Done!"'
 
+alias grep 'grep --color=auto'
+alias fgrep 'fgrep --color=auto'
+alias egrep 'egrep --color=auto'
+
 # This adds colours to things like ls and grep 
 # OS dependent stuff
 
@@ -61,16 +67,21 @@ if ( $PLATFORM == 'linux' ) then
 		alias ll 'ls -l'
 		alias la 'ls -a'
 
+else if ( $PLATFORM == 'obsd' ) then
+		alias ls 'ls '
+		alias lal 'ls -al'
+		alias ll 'ls -l'
+		alias la 'ls -a'
+		unalias grep
+		unalias fgrep
+		unalias egrep 
+
 else if ( $PLATFORM == 'bsd' ) then
 		alias ls 'ls -G'
 		alias lal 'ls -alG'
 		alias ll 'ls -lG'
 		alias la 'ls -aG'
 endif
-
-alias grep 'grep --color=auto'
-alias fgrep 'fgrep --color=auto'
-alias egrep 'egrep --color=auto'
 
 # Here are some other additions to keep me sane
 alias free 'free -m'
