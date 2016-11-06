@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=2bwm
+Comment=A fast floating WM, with the particularity of having 2 borders
+Exec=2bwm
+TryExec=2bwm
+Type=Application
+X-LightDM-DesktopName=2bwm
+DesktopNames=2bwm
