@@ -15,6 +15,18 @@
 ! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
 !-------------------------------------------------------------------------------
 
+xterm*font:		7x14
+xterm*c132:		True
+xterm*loginShell:	True
+xterm*geometry:		80x24
+!xterm*background:	SeaGreen
+!xterm*foreground:	white
+xterm*deleteIsDEL:	true
+! Sets paste to be middle click
+xterm*VT100.translations:	#override \
+	<Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n\
+	<Btn2Up>: insert-selection(CLIPBOARD)
+
 URxvt.depth:                32
 URxvt.geometry:             80x24
 URxvt.transparent:          false
