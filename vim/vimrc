@@ -1,4 +1,4 @@
-" Guy Nankivell, 2016
+" Guy Nankivell, 2022
 
 " This is my .vimrc. Pretty much a work in 
 " progress as I learn what suits my workflow
@@ -35,12 +35,6 @@ set number
 " set relativenumber # FUCK I CAN'T DEAL
 "set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 
-" Remember to set this to the colour of your terminal
-" not what you think the colours should be
-"
-"let g:solarized_termcolors=256
-set background=light
-"set background=dark
 
 " This allows modelines in vim
 set modeline
@@ -53,12 +47,24 @@ set foldmethod=marker " can also fold by indent
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
+" This remaps bg <enter> to toggle the background colour
+map bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+
 " To set the colorscheme 
 colorscheme solarized
 "
 " This next line is to force compatibility with
 " xfce4 terminal
-set t_Co=16
+"set t_Co=16
+" Use the below line to force compat with xterm && screen
+set t_Co=256
+
+" Remember to set this to the colour of your terminal
+" not what you think the colours should be
+"
+"let g:solarized_termcolors=256
+set background=light
+"set background=dark
 
 " Here I disabled the arrow keys so that I use hjkl
 inoremap <Up> <NOP>
