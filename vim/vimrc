@@ -53,18 +53,21 @@ map bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 " To set the colorscheme 
 colorscheme solarized
 "
-" This next line is to force compatibility with
-" xfce4 terminal
-"set t_Co=16
 " Use the below line to force compat with xterm && screen
-set t_Co=256
+if &term == "xterm" || &term == "screen"
+		set t_Co=256
+endif
+
+if &term == "xfce4-terminal"
+	set t_Co=16
+endif
 
 " Remember to set this to the colour of your terminal
 " not what you think the colours should be
 "
 "let g:solarized_termcolors=256
-set background=light
-"set background=dark
+"set background=light
+set background=dark
 
 " Here I disabled the arrow keys so that I use hjkl
 inoremap <Up> <NOP>
