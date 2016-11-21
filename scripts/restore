@@ -78,6 +78,15 @@ ln -s "$DOTDIR"/shell/tcsh/.tcshrc "$MYHOME"/.tcshrc
 #source "$MYHOME"/.tcshrc > /dev/null
 #echo -e "Creating symbolic link for .tcshrc... \n"
 
+if [ -L "$MYHOME"/.screenrc] || [ -f "$MYHOME"/.screenrc];
+then 
+	rm -r "$MYHOME"/.screenrc
+#	echo "Cleaning up old .tcshrc"
+fi
+
+# This creates the symbolic link for my .tcshrc
+ln -s "$DOTDIR"/shell/screen/screenrc "$MYHOME"/.screenrc
+
 #####################################################
 # __     _____ __  __ 
 # \ \   / /_ _|  \/  |
