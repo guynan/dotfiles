@@ -108,7 +108,7 @@ fi
 
 # This creates the symbolic link for my .vimrc
 
-ln -s "$DOTDIR"/vim/.vimrc "$HOME"/.vimrc
+ln -s "$DOTDIR"/vim/vimrc "$HOME"/.vimrc
 
 #####################################################
 
