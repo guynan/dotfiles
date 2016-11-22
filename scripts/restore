@@ -109,7 +109,7 @@ then
 	rm -r "$MYHOME"/.vim
 fi
 
-ln -s "$DOTDIR"/vim/.vim "$HOME"/.vim
+ln -s "$DOTDIR"/vim/vim "$HOME"/.vim
 
 #####################################################
 #   ____ ___ _____ 
