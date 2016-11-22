@@ -127,7 +127,7 @@ then
 	rm -r "$MYHOME"/.gitconfig
 fi
 
-ln -s "$DOTDIR"/git/.gitconfig "$HOME"/.gitconfig
+ln -s "$DOTDIR"/git/config "$HOME"/.gitconfig
 
 ######################################################
 
@@ -138,7 +138,7 @@ then
 	rm -r "$MYHOME"/.gitignore_global
 fi
 
-ln -s "$DOTDIR"/git/.gitignore_global "$HOME"/.gitignore_global
+ln -s "$DOTDIR"/git/ignore_global "$HOME"/.gitignore_global
 
 #####################################################
 
