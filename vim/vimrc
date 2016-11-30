@@ -54,7 +54,7 @@ map bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 colorscheme solarized
 "
 " Use the below line to force compat with xterm && screen
-if &term == "xterm" || &term == "screen"
+if &term == "xterm" || &term == "screen" || &term == "screen-256color"
 		set t_Co=256
 endif
 
