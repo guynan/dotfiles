@@ -19,7 +19,8 @@ static const uint8_t offsets[] = {0,0,0,0};
  *2)fixedcol         3)unkilcol
  *4)fixedunkilcol    5)outerbordercol
  *6)emptycol         */
-static const char *colors[] = {"#d33682","#333333","#7a8c5c","#ff6666","#cc9933","#d33682","#000000"};
+static const char *colors[] =
+{"#2aa198","#073642","#7a8c5c","#ff6666","#cc9933","#2aa198","#000000"};
 //static const char *colors[] = {"#35586c","#333333","#7a8c5c","#ff6666","#cc9933","#0d131a","#000000"};
 /*
  * If you are using a composition manager enable the COMPTON flag in the Makefile
@@ -43,9 +44,9 @@ static const uint8_t borders[] = {3,5,5,4};
 static const char *ignore_names[] = {"bar", "xclock"};
 ///--Menus and Programs---///
 static const char *menucmd[]   = { "dmenu_run", NULL };
-static const char *chrome[]   = { "google-chrome-stable", NULL };
+static const char *chrome[]   = { "chrome", NULL };
 static const char *gmrun[]     = { "/usr/bin/gmrun",NULL};
-static const char *terminal[]  = { "xfce4-terminal", NULL };
+static const char *terminal[]  = { "xterm", NULL };
 static const char *click1[]    = { "xdotool","click", "1", NULL };
 static const char *click2[]    = { "xdotool","click", "2", NULL };
 static const char *click3[]    = { "xdotool","click", "3", NULL };
