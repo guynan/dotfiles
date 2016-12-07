@@ -50,6 +50,9 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 " This remaps bg <enter> to toggle the background colour
 map bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
+" Make it such that when you search there is no highlighting
+set nohlsearch
+
 " To set the colorscheme 
 colorscheme solarized
 "
