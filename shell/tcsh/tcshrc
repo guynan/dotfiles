@@ -45,6 +45,9 @@ endif
 # Possibly also my most used alias
 alias :wq 'exit'
 
+# So used to compiling on cc
+alias cc 'gcc' 
+
 # These ones are for work
 alias odoo8 'echo "Changing into work directory" ;\
 		cd ~/work/odoo8/; echo "Pulling content";\
