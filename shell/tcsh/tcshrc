@@ -45,8 +45,11 @@ endif
 # Possibly also my most used alias
 alias :wq 'exit'
 
+if ($PLATFORM == linux) then
+	alias cc 'gcc' 
+endif
+
 # So used to compiling on cc
-alias cc 'gcc' 
 
 # These ones are for work
 alias odoo8 'echo "Changing into work directory" ;\
