@@ -19,11 +19,16 @@ then
 		ln -s /usr/local/src "$MYHOME"/src 
 fi
 
-# Create a dotfile directory in home
-if [ ! -d "$MYHOME"/dotfiles ] || [ ! -L "$MYHOME"/dotfiles ];
+if [ ! -d "$MYHOME"/tmp ] || [ ! -L "$MYHOME"/tmp ];
 then
-		ln -s "$DOTDIR" "$MYHOME"/dotfiles 
+		ln -s /usr/local/tmp "$MYHOME"/tmp
 fi
+
+# Create a dotfile directory in home
+#if [ ! -d "$MYHOME"/dotfiles ] || [ ! -L "$MYHOME"/dotfiles ];
+#then
+#		ln -s "$DOTDIR" "$MYHOME"/dotfiles 
+#fi
 
 # Create an etc directory in home
 if [ ! -d "$MYHOME"/etc ] || [ ! -L "$MYHOME"/etc ];
