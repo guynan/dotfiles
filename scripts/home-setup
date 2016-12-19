@@ -21,7 +21,7 @@ fi
 
 if [ ! -d "$MYHOME"/tmp ] || [ ! -L "$MYHOME"/tmp ];
 then
-		ln -s /usr/local/tmp "$MYHOME"/tmp
+		ln -s /tmp "$MYHOME"/tmp
 fi
 
 # Create a dotfile directory in home
