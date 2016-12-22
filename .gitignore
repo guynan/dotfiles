@@ -1,4 +1,10 @@
-vim/.vim/.netrwhis*
+# Vim swap files
 *.swp
+
+# Some terminal thingy
 xfce4/terminal/accels.scm
+
+# Vim makes this shit
+vim/.vim/.netrwhis*
+vim/vim/.netrwhist
 
