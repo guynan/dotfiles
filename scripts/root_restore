@@ -13,6 +13,11 @@ MYHOME="$HOME"
 CURRDIR=`pwd`
 DOTDIR="$(dirname "$CURRDIR")"
 
+if [ `id -u` -ne 0 ]; then
+   echo "This script must be run as root" 
+   exit 1
+fi
+
 # This is a global check for my config directory
 # Create the .config directory if it doesn't
 # already exist in home
@@ -53,7 +58,7 @@ then
 	rm -r "$MYHOME"/.tcsh_root_profile
 fi
 ln -s "$DOTDIR"/shell/tcsh/tcshrc "$MYHOME"/.tcshrc
-ln -s "$DOTDIR"/shell/tcsh/.tcsh_root_profile "$MYHOME"/.tcsh_root_profile
+ln -s "$DOTDIR"/shell/tcsh/tcsh_root_profile "$MYHOME"/.tcsh_root_profile
 
 #####################################################
 
