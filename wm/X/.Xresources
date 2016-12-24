@@ -22,10 +22,14 @@ xterm*geometry:		80x24
 !xterm*background:	SeaGreen
 !xterm*foreground:	white
 xterm*deleteIsDEL:	true
+xterm*ScrollBar:	false
 ! Sets paste to be middle click
 xterm*VT100.translations:	#override \
 	<Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n\
 	<Btn2Up>: insert-selection(CLIPBOARD)
+
+! Allow C-Shift-V pasting
+xterm*VT100.Translations: #override Ctrl Shift <Key>V: insert-selection(CLIPBOARD) \n Ctrl Shift <Key>C: copy-selection(CLIPBOARD)
 
 URxvt.depth:                32
 URxvt.geometry:             80x24
