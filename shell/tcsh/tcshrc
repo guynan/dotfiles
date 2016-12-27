@@ -149,6 +149,7 @@ complete pkill 'c/-/S/' 'n/*/`ps -axco command= | sort -u`/'
 # Detect language files
 complete python 'p/*/f:*.py/'
 complete python3 'p/*/f:*.py/'
+complete clisp 'p/*/f:*.lisp/'
 complete cc 'p/*/f:*.[cao]/'
 complete gcc 'p/*/f:*.[cao]/'
 complete perl 'p/*/f:*.[pP][lL]/'
