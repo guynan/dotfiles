@@ -122,3 +122,12 @@ au BufNewFile,BufRead *.c,*.h,
     \ set textwidth=79 |
     \ set fileformat=unix |
 
+au BufNewFile,BufRead *.lisp,*.lsp,
+    \ set noexpandtab |
+    \ set expandtab |
+	\ set tabstop=8 |
+    \ set shiftwidth=8 |
+    \ set softtabstop=8 |
+    \ set textwidth=79 |
+    \ set fileformat=unix |
+
