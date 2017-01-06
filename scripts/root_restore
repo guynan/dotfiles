@@ -98,6 +98,18 @@ fi
 ln -s "$DOTDIR"/vim/vim "$HOME"/.vim
 
 
+#####################################################
+
+# This handles the check for my .screen
+
+if [ -f "$MYHOME"/.screenrc ] || [ -L "$MYHOME"/.screenrc ];
+then 
+	rm -r "$MYHOME"/.screenrc
+fi
+
+ln -s "$DOTDIR"/shell/screen/screenrc "$HOME"/.screenrc
+
+
 unset MYHOME
 unset DOTDIR
 
