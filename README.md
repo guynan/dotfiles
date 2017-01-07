@@ -12,12 +12,20 @@ It is pretty sloppy and the commits are all over the place because my mood is al
 
 ## Current Usage
 
-*Operating system(s)*: FreeBSD/Fedora
-*Terminal*: Xterm
-*Terminal Multiplexer*: Screen
-*Shell*: tcsh
-*Wm*: 2bwm
-*Editor*: Vim/Vi
-*Vim Theme*: Solarized Dark
-*Broswer*: Chromium
-*Compositor* Compton
+**Operating system(s)**: FreeBSD/Fedora
+
+**Terminal**: Xterm
+
+**Terminal Multiplexer**: Screen
+
+**Shell**: tcsh
+
+**Wm**: 2bwm
+
+**Editor**: Vim/Vi
+
+**Vim Theme**: Solarized Dark
+
+**Broswer**: Chromium
+
+**Compositor** Compton
