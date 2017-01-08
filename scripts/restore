@@ -182,7 +182,7 @@ then
 	rm -r "$MYHOME"/.config/xfce4
 fi
 
-ln -s "$DOTDIR"/xfce4 "$HOME"/.config/xfce4
+ln -s "$DOTDIR"/wm/xfce4 "$HOME"/.config/xfce4
 
 #####################################################
 # __          ____  __    _____ _          __  __ 
