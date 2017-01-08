@@ -5,7 +5,6 @@ These scripts are designed to be able to return the most frequently used config 
 cd /usr/local/src/ # This is where I like my source code files
 git clone https://www.github.com/guynan/dotfiles.git
 cd dotfiles/scripts
-./home-setup 
 sh restore
 ```
 	
