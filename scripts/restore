@@ -39,16 +39,49 @@ then
 	DISTRO="arch-linux"
 fi
 
+#
 # This is a global check for my config directory
 # Create the .config directory if it doesn't
 # already exist in home
 # just realised that I reference $HOME and $MYHOME
 # no harm done but poor consistency
+#
 
 if [ ! -d "$MYHOME"/.config ];
 then
 	mkdir "$MYHOME"/.config
 fi
+
+#
+# This script is designed to restore my home
+# attributes. These are typically symbolic links
+# and directory creation. This should only be
+# performed after a new installation.
+#
+
+# Create a link from the source code directory in $home
+if [ ! -d "$MYHOME"/src ] || [ ! -L "$MYHOME"/src ];
+then
+                ln -s /usr/local/src "$MYHOME"/src
+fi
+
+if [ ! -d "$MYHOME"/tmp ] || [ ! -L "$MYHOME"/tmp ];
+then
+                ln -s /tmp "$MYHOME"/tmp
+fi
+
+# Create a dotfile directory in home
+#if [ ! -d "$MYHOME"/dotfiles ] || [ ! -L "$MYHOME"/dotfiles ];
+#then
+#               ln -s "$DOTDIR" "$MYHOME"/dotfiles
+#fi
+
+# Create an etc directory in home
+if [ ! -d "$MYHOME"/etc ] || [ ! -L "$MYHOME"/etc ];
+then
+	ln -s $MYHOME/.config "$MYHOME"/etc
+fi
+
 
 #####################################################
 #  _____ ____ ____  _   _ 
@@ -231,6 +264,8 @@ unset unamestr
 unset PLATFORM
 unset DISTRO
 exit
-
-/bin/tcsh
-source "$HOME"/.tcshrc
+if [ -f /bin/tcsh ]
+then
+	/bin/tcsh
+	source "$HOME"/.tcshrc
+fi
