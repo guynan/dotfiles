@@ -30,3 +30,5 @@ hardstatus string '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u
 #screen -t Shell2  2 bash
 #screen -t Python  3 python
 #screen -t Media   4 bash
+termcapinfo xterm* ti@:te@
+
