@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# Written by Guy Nankivell, 2016
-# Released under the 3 clause BSD license
-
 #####################################################
 # This script is designed to restore my commonly    #
 # used config files by symbolically linking them    #
@@ -10,13 +7,17 @@
 # This works locally on most UNIX based OS          #
 #####################################################
 
+# Written by Guy Nankivell, 2016
+# Released under the 3 clause BSD license
+
+
 # Establish the platform you are working on
-unamestr=`uname`
-if [ "$unamestr" == 'Linux' ]; then
+UNAME=`uname`
+if [ "$UNAME" == 'Linux' ]; then
    PLATFORM='linux'
-elif [ "$unamestr" == 'FreeBSD' ]; then
+elif [ "$UNAME" == 'FreeBSD' ]; then
    PLATFORM='bsd'
-elif [ "$unamestr" == 'DragonFly' ]; then
+elif [ "$UNAME" == 'DragonFly' ]; then
    PLATFORM='bsd'
 else
 	PLATFORM='bsd'
@@ -27,6 +28,15 @@ fi
 MYHOME="$HOME"
 CURRDIR=`pwd`
 DOTDIR="$(dirname "$CURRDIR")"
+
+# Check if we are in the correct working directory
+DIR="/usr/local/src"
+
+if [ "$(dirname "${DOTDIR}")" != "${DIR}" ];
+then
+        echo "Incorrect directory"
+        exit 2
+fi
 
 # Distro detection
 
@@ -260,9 +270,10 @@ ln -s "$DOTDIR"/shell/screen/screenrc "$HOME"/.screenrc
 unset MYHOME
 unset DOTDIR
 unset CURRDIR
-unset unamestr
+unset UNAME
 unset PLATFORM
 unset DISTRO
+unset DIR
 exit
 if [ -f /bin/tcsh ]
 then
