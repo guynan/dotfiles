@@ -84,8 +84,8 @@ else if ( $PLATFORM == 'obsd' ) then
 
 else if ( $PLATFORM == 'bsd' ) then
 		alias ls 'ls -IG'
-		alias lal 'ls -alG'
-		alias ll 'ls -lG'
+		alias lal 'ls -alGh'
+		alias ll 'ls -lGh'
 		alias la 'ls -aG'
 endif
 
