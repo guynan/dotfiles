@@ -102,12 +102,9 @@ fi
 #                         
 #####################################################
 
-# This handles the check for my .tcshrc
-
 if [ -L "$MYHOME"/.tcshrc ] || [ -f "$MYHOME"/.tcshrc ];
 then 
 	rm -r "$MYHOME"/.tcshrc
-#	echo "Cleaning up old .tcshrc"
 fi
 
 # This creates the symbolic link for my .tcshrc
@@ -130,8 +127,6 @@ ln -s "$DOTDIR"/shell/tcsh/tcshrc "$MYHOME"/.tcshrc
 #    \_/  |___|_|  |_|
 #
 #####################################################
-
-# This handles the check for my .vimrc
 
 if [ -f "$MYHOME"/.vimrc ] || [ -L "$MYHOME"/.vimrc ];
 then 
@@ -163,8 +158,6 @@ ln -s "$DOTDIR"/vim/vim "$HOME"/.vim
 #                 
 #####################################################
 
-# This handles the check for my .gitconfig
-
 if [ -f "$MYHOME"/.gitconfig ] || [ -L "$MYHOME"/.gitconfig ];
 then 
 	rm -r "$MYHOME"/.gitconfig
@@ -174,8 +167,6 @@ ln -s "$DOTDIR"/git/config "$HOME"/.gitconfig
 
 ######################################################
 
-# This handles the check for my .gitconfig
-
 if [ -f "$MYHOME"/.gitignore_global ] || [ -L "$MYHOME"/.gitignore_global ];
 then 
 	rm -r "$MYHOME"/.gitignore_global
@@ -184,8 +175,6 @@ fi
 ln -s "$DOTDIR"/git/ignore_global "$HOME"/.gitignore_global
 
 #####################################################
-
-# This handles the check for my .xfce/ directory
 
 if [ -d "$MYHOME"/.config/xfce4 ] || [ -L "$MYHOME"/.config/xfce4 ];
 then 
@@ -204,8 +193,6 @@ ln -s "$DOTDIR"/wm/xfce4 "$HOME"/.config/xfce4
 #
 #####################################################
 
-# This handles the check for my i3/ directory
-
 if [ -d "$MYHOME"/.config/i3 ] || [ -L "$MYHOME"/.config/i3 ];
 then 
 	rm -r "$MYHOME"/.config/i3
@@ -214,8 +201,6 @@ fi
 ln -s "$DOTDIR"/wm/i3 "$HOME"/.config/i3
 
 #####################################################
-
-# This handles the check for my bspwm/ directory
 
 if [ -d "$MYHOME"/.config/bspwm ] || [ -L "$MYHOME"/.config/bspwm ];
 then 
@@ -226,8 +211,6 @@ ln -s "$DOTDIR"/wm/bspwm "$HOME"/.config/bspwm
 
 #####################################################
 
-# This handles the check for my sxhkd/ directory
-
 if [ -d "$MYHOME"/.config/sxhkd ] || [ -L "$MYHOME"/.config/sxhkd ];
 then 
 	rm -r "$MYHOME"/.config/sxhkd
@@ -236,8 +219,6 @@ fi
 ln -s "$DOTDIR"/wm/sxhkd "$HOME"/.config/sxhkd
 
 #####################################################
-
-# This handles the check for my compton/ directory
 
 if [ -d "$MYHOME"/.config/compton ] || [ -L "$MYHOME"/.config/compton ];
 then 
@@ -248,17 +229,19 @@ ln -s "$DOTDIR"/wm/compton "$HOME"/.config/compton
 
 #####################################################
 
-# This handles the check for my .Xresources 
 if [ -f "$MYHOME"/.Xresources ] || [ -L "$MYHOME"/.Xresources ];
 then 
 	rm -r "$MYHOME"/.Xresources
 fi
-ln -s "$DOTDIR"/wm/X/.Xresources "$HOME"/.Xresources
+ln -s "$DOTDIR"/wm/X/Xresources "$HOME"/.Xresources
 #xrdb "$HOME"/.Xresources
 
 #####################################################
 
-# SCREEN 
+#
+# Screen
+#
+
 if [ -f "$MYHOME"/.screenrc ] || [ -L "$MYHOME"/.screenrc ];
 then 
 	rm -r "$MYHOME"/.screenrc
