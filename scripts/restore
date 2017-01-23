@@ -249,6 +249,7 @@ fi
 ln -s "$DOTDIR"/shell/screen/screenrc "$HOME"/.screenrc
 
 # Unsetting environment variables / cleaning up
+xrdb "$DOTDIR"/wm/X/Xresources
 
 unset MYHOME
 unset DOTDIR
@@ -263,3 +264,4 @@ then
 	/bin/tcsh
 	source "$HOME"/.tcshrc
 fi
+
