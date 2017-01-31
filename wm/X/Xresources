@@ -21,7 +21,7 @@ XTerm*utf8Title:	True
 XTerm*renderFont:	True
 XTerm*preeditType:	Root
 XTerm*xftAntialias: true
-XTerm*faceName:		xft:Monospace Regular-11
+XTerm*faceName:		xft:Monospace Regular-10
 
 ! Geometry 
 xterm*c132:			True
