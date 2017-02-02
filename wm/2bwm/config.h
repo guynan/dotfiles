@@ -20,12 +20,7 @@ static const uint8_t offsets[] = {0,0,0,0};
  *4)fixedunkilcol    5)outerbordercol
  *6)emptycol         */
 static const char *colors[] =
-{"#2aa198","#073642","#7a8c5c","#ff6666","#cc9933","#2aa198","#000000"};
-//static const char *colors[] = {"#35586c","#333333","#7a8c5c","#ff6666","#cc9933","#0d131a","#000000"};
-/*
- * If you are using a composition manager enable the COMPTON flag in the Makefile
- * (By changing -DNCOMPTON to -DCOMPTON)
- */
+{"#280201","#330100","#7a8c5c","#ff6666","#cc9933","#280201","#000000"}; 
 /* if this is set to true the inner border and outer borders colors will be swapped */
 static const bool inverted_colors = true;
 ///---Cursor---///
@@ -44,12 +39,17 @@ static const uint8_t borders[] = {3,5,5,4};
 static const char *ignore_names[] = {"bar", "xclock"};
 ///--Menus and Programs---///
 static const char *menucmd[]   = { "dmenu_run", NULL };
-static const char *chrome[]   = { "chrome", NULL };
 static const char *gmrun[]     = { "/usr/bin/gmrun",NULL};
+static const char *chrome[]     = { "chrome",NULL};
 static const char *terminal[]  = { "xterm", NULL };
 static const char *click1[]    = { "xdotool","click", "1", NULL };
 static const char *click2[]    = { "xdotool","click", "2", NULL };
 static const char *click3[]    = { "xdotool","click", "3", NULL };
+/* Example
+static const char *vol_up[]    = { "amixer", "set", "Master", "unmute", "3%+", "-q", NULL };
+static const char *vol_down[]  = { "amixer", "set", "Master", "unmute", "3%-", "-q", NULL };
+static const char *vol_mute[]  = { "amixer", "set", "Master", "mute", "-q", NULL };
+*/
 ///--Custom foo---///
 static void halfandcentered(const Arg *arg)
 {
@@ -89,12 +89,11 @@ static void halfandcentered(const Arg *arg)
 {  MOD |SHIFT,       K,              sendtoworkspace, {.i=N}},
 static key keys[] = {
     /* modifier           key            function           argument */
-    //
     // Focus to next/previous window
     {  MOD ,              XK_Tab,        focusnext,         {.i=TWOBWM_FOCUS_NEXT}},
     {  MOD |SHIFT,        XK_Tab,        focusnext,         {.i=TWOBWM_FOCUS_PREVIOUS}},
     // Kill a window
-    {  MOD ,              XK_w,          deletewin,         {}},
+    {  MOD ,              XK_q,          deletewin,         {}},
     // Resize a window
     {  MOD |SHIFT,        XK_k,          resizestep,        {.i=TWOBWM_RESIZE_UP}},
     {  MOD |SHIFT,        XK_j,          resizestep,        {.i=TWOBWM_RESIZE_DOWN}},
@@ -125,7 +124,7 @@ static key keys[] = {
     // Top left:
 //    {  MOD ,              XK_y,          teleport,          {.i=TWOBWM_TELEPORT_TOP_LEFT}},
     // Top right:
-//    {  MOD ,              XK_u,          teleport,          {.i=TWOBWM_TELEPORT_TOP_RIGHT}},
+ //   {  MOD ,              XK_u,          teleport,          {.i=TWOBWM_TELEPORT_TOP_RIGHT}},
     // Bottom left:
     {  MOD ,              XK_b,          teleport,          {.i=TWOBWM_TELEPORT_BOTTOM_LEFT}},
     // Bottom right:
@@ -138,9 +137,9 @@ static key keys[] = {
     //Full screen window without borders overiding offsets
     {  MOD |SHIFT ,       XK_x,          maximize,          {.i=TWOBWM_FULLSCREEN_OVERRIDE_OFFSETS}},
     // Maximize vertically
-//    {  MOD ,              XK_m,          maxvert_hor,       {.i=TWOBWM_MAXIMIZE_VERTICALLY}},
+    {  MOD ,              XK_m,          maxvert_hor,       {.i=TWOBWM_MAXIMIZE_VERTICALLY}},
     // Maximize horizontally
-//    {  MOD |SHIFT,        XK_m,          maxvert_hor,       {.i=TWOBWM_MAXIMIZE_HORIZONTALLY}},
+    {  MOD |SHIFT,        XK_m,          maxvert_hor,       {.i=TWOBWM_MAXIMIZE_HORIZONTALLY}},
     // Maximize and move
     // vertically left
     {  MOD ,        XK_y,          maxhalf,           {.i=TWOBWM_MAXHALF_VERTICAL_LEFT}},
@@ -167,40 +166,44 @@ static key keys[] = {
     {  MOD ,              XK_Right,          nextworkspace,     {}},
     {  MOD ,              XK_Left,          prevworkspace,     {}},
     // Move to Next/Previous workspace
-//    {  MOD |SHIFT ,       XK_Right,          sendtonextworkspace,{}},
-//    {  MOD |SHIFT ,       XK_Left,          sendtoprevworkspace,{}},
+    {  MOD |SHIFT ,       XK_Right,          sendtonextworkspace,{}},
+    {  MOD |SHIFT ,       XK_Left,          sendtoprevworkspace,{}},
     // Iconify the window
-//    {  MOD ,              XK_i,          hide,              {}},
+    {  MOD ,              XK_i,          hide,              {}},
     // Make the window unkillable
-    {  MOD ,              XK_a,          unkillable,        {}},
+ //   {  MOD ,              XK_a,          unkillable,        {}},
     // Make the window appear always on top
-    {  MOD,               XK_t,          always_on_top,     {}},
+  //  {  MOD,               XK_t,          always_on_top,     {}},
     // Make the window stay on all workspaces
-    {  MOD ,              XK_f,          fix,               {}},
+//    {  MOD ,              XK_f,          fix,               {}},
     // Move the cursor
-/* I will not use this cursor shit */
 //    {  MOD ,              XK_Up,         cursor_move,       {.i=TWOBWM_CURSOR_UP_SLOW}},
-//    {  MOD ,              XK_Down,       cursor_move,       {.i=TWOBWM_CURSOR_DOWN_SLOW}},
-//    {  MOD ,              XK_Right,      cursor_move,       {.i=TWOBWM_CURSOR_RIGHT_SLOW}},
-//    {  MOD ,              XK_Left,       cursor_move,       {.i=TWOBWM_CURSOR_LEFT_SLOW}},
+ //   {  MOD ,              XK_Down,       cursor_move,       {.i=TWOBWM_CURSOR_DOWN_SLOW}},
+  //  {  MOD ,              XK_Right,      cursor_move,       {.i=TWOBWM_CURSOR_RIGHT_SLOW}},
+   // {  MOD ,              XK_Left,       cursor_move,       {.i=TWOBWM_CURSOR_LEFT_SLOW}},
     // Move the cursor faster
-//    {  MOD |SHIFT,        XK_Up,         cursor_move,       {.i=TWOBWM_CURSOR_UP}},
-//    {  MOD |SHIFT,        XK_Down,       cursor_move,       {.i=TWOBWM_CURSOR_DOWN}},
-//    {  MOD |SHIFT,        XK_Right,      cursor_move,       {.i=TWOBWM_CURSOR_RIGHT}},
+   // {  MOD |SHIFT,        XK_Up,         cursor_move,       {.i=TWOBWM_CURSOR_UP}},
+  //  {  MOD |SHIFT,        XK_Down,       cursor_move,       {.i=TWOBWM_CURSOR_DOWN}},
+ //   {  MOD |SHIFT,        XK_Right,      cursor_move,       {.i=TWOBWM_CURSOR_RIGHT}},
 //    {  MOD |SHIFT,        XK_Left,       cursor_move,       {.i=TWOBWM_CURSOR_LEFT}},
     // Start programs
     {  MOD ,              XK_Return,     start,             {.com = terminal}},
-    {  MOD ,              XK_space,      start,             {.com = menucmd}},
-    {  MOD ,              XK_c,      	start,             {.com = chrome}},
-//    {  MOD ,              XK_w,          start,             {.com = menucmd}},
-//    {  MOD |SHIFT,        XK_w,          start,             {.com = gmrun}},
+    {  MOD ,              XK_space,          start,             {.com = menucmd}},
+  //  {  MOD |SHIFT,        XK_w,          start,             {.com = gmrun}},
     // Exit or restart 2bwm
     {  MOD |CONTROL,      XK_q,          twobwm_exit,       {.i=0}},
     {  MOD |CONTROL,      XK_r,          twobwm_restart,    {.i=0}},
+ //   {  MOD ,              XK_space,      halfandcentered,   {.i=0}},
     // Fake clicks using xdotool
 //    {  MOD |CONTROL,      XK_Up,         start,             {.com = click1}},
-//    {  MOD |CONTROL,      XK_Down,       start,             {.com = click2}},
+ //   {  MOD |CONTROL,      XK_Down,       start,             {.com = click2}},
 //	{  MOD |CONTROL,      XK_Right,      start,             {.com = click3}},
+/* example
+    {  0x000000,          0x1008ff13, start,             {.com = vol_up}},
+    {  0x000000,          0x1008ff11,  start,             {.com = vol_down}},
+    {  0x000000,          0x1008ff15, start,             {.com = vol_mute}},
+*/
+
 
     // Change current workspace
        DESKTOPCHANGE(     XK_1,                             0)
