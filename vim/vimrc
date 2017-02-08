@@ -54,7 +54,9 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 set nohlsearch
 
 " To set the colorscheme 
-colorscheme solarized
+"colorscheme solarized
+"colorscheme 256_noir
+colorscheme monochrome
 "
 " Use the below line to force compat with xterm && screen
 if &term == "xterm" || &term == "screen" || &term == "screen-256color"
