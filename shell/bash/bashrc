@@ -1,0 +1,12 @@
+# Rudimentary .bashrc for Ubuntu
+
+# Getting around
+alias ls='ls --color=auto'
+alias ll='ls -l'
+alias lal='ls -al'
+
+# Sanity check for C programming
+alias cc='gcc -pedantic'
+
+# One pet gripe with BASH fixed
+set show-all-if-ambiguous on
