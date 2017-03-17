@@ -26,6 +26,7 @@ XTerm*faceName:		xft:Monospace Regular-10
 ! Geometry 
 xterm*c132:			True
 xterm*loginShell:	True
+xterm*internalBorder:	10
 xterm*geometry:		80x24
 xterm*deleteIsDEL:	true
 xterm*ScrollBar:	false
