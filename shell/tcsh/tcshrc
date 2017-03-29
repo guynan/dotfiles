@@ -8,6 +8,8 @@ if ( "$UNAMESTR" == 'Linux' ) then
 	set PLATFORM='linux'
 else if ( "$UNAMESTR" == 'FreeBSD') then
 	set PLATFORM='bsd'
+else if ( "$UNAMESTR" == 'Darwin') then
+	set PLATFORM='mac'
 else if ( "$UNAMESTR" == 'DragonFly' ) then
 	set PLATFORM='bsd'
 else if ( "$UNAMESTR" == 'OpenBSD' ) then
@@ -84,6 +86,12 @@ else if ( $PLATFORM == 'obsd' ) then
 
 else if ( $PLATFORM == 'bsd' ) then
 		alias ls 'ls -IG'
+		alias lal 'ls -alGh'
+		alias ll 'ls -lGh'
+		alias la 'ls -aG'
+
+else if ( $PLATFORM == 'mac' ) then
+		alias ls 'ls -G'
 		alias lal 'ls -alGh'
 		alias ll 'ls -lGh'
 		alias la 'ls -aG'
