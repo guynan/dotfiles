@@ -10,6 +10,23 @@
 # Written by Guy Nankivell, 2016
 # Released under the 3 clause BSD license
 
+ALT_DIR="NO"
+
+# What you need to do is accept 
+# command line arguments - setting 
+# environment variables such as whether
+# it is a work config or not
+
+# Command line argument parsing;
+#while getops a: option
+#do
+#	case "{option}"
+#	in
+##		w) WORK="YES";;
+#		a) ALT_DIR="YES";;
+#	esac
+#done
+
 
 # Establish the platform you are working on
 UNAME=`uname`
@@ -25,14 +42,14 @@ fi
 
 # Creation of environment variables...
 
-MYHOME="$HOME"
 CURRDIR=`pwd`
 DOTDIR="$(dirname "$CURRDIR")"
 
 # Check if we are in the correct working directory
 DIR="/usr/local/src"
 
-if [ "$(dirname "${DOTDIR}")" != "${DIR}" ];
+#&& "$ALT_DIR" == "NO"
+if [ "$(dirname "${DOTDIR}")" != "${DIR}"  ];
 then
         echo "Incorrect directory"
         exit 2
@@ -49,17 +66,15 @@ then
 	DISTRO="arch-linux"
 fi
 
+
 #
 # This is a global check for my config directory
 # Create the .config directory if it doesn't
 # already exist in home
-# just realised that I reference $HOME and $MYHOME
-# no harm done but poor consistency
-#
 
-if [ ! -d "$MYHOME"/.config ];
+if [ ! -d "$HOME"/.config ];
 then
-	mkdir "$MYHOME"/.config
+	mkdir "$HOME"/.config
 fi
 
 #
@@ -70,26 +85,26 @@ fi
 #
 
 # Create a link from the source code directory in $home
-if [ ! -d "$MYHOME"/src ] || [ ! -L "$MYHOME"/src ];
+if [ ! -d "$HOME"/src ] || [ ! -L "$HOME"/src ];
 then
-                ln -s /usr/local/src "$MYHOME"/src
+                ln -s /usr/local/src "$HOME"/src
 fi
 
-if [ ! -d "$MYHOME"/tmp ] || [ ! -L "$MYHOME"/tmp ];
+if [ ! -d "$HOME"/tmp ] || [ ! -L "$HOME"/tmp ];
 then
-                ln -s /tmp "$MYHOME"/tmp
+                ln -s /tmp "$HOME"/tmp
 fi
 
 # Create a dotfile directory in home
-#if [ ! -d "$MYHOME"/dotfiles ] || [ ! -L "$MYHOME"/dotfiles ];
+#if [ ! -d "$HOME"/dotfiles ] || [ ! -L "$HOME"/dotfiles ];
 #then
-#               ln -s "$DOTDIR" "$MYHOME"/dotfiles
+#               ln -s "$DOTDIR" "$HOME"/dotfiles
 #fi
 
 # Create an etc directory in home
-if [ ! -d "$MYHOME"/etc ] || [ ! -L "$MYHOME"/etc ];
+if [ ! -d "$HOME"/etc ] || [ ! -L "$HOME"/etc ];
 then
-	ln -s $MYHOME/.config "$MYHOME"/etc
+	ln -s $HOME/.config "$HOME"/etc
 fi
 
 
@@ -102,20 +117,20 @@ fi
 #                         
 #####################################################
 
-if [ -L "$MYHOME"/.tcshrc ] || [ -f "$MYHOME"/.tcshrc ];
+if [ -L "$HOME"/.tcshrc ] || [ -f "$HOME"/.tcshrc ];
 then 
-	rm -r "$MYHOME"/.tcshrc
+	rm -r "$HOME"/.tcshrc
 fi
 
 # This creates the symbolic link for my .tcshrc
-ln -s "$DOTDIR"/shell/tcsh/tcshrc "$MYHOME"/.tcshrc
+ln -s "$DOTDIR"/shell/tcsh/tcshrc "$HOME"/.tcshrc
 
 # Important to source it so changes take effect without
 # logging into the shell again
 # Sends debug messages to the appropriate 
 # logging location of /dev/null
 
-#source "$MYHOME"/.tcshrc > /dev/null
+#source "$HOME"/.tcshrc > /dev/null
 #echo -e "Creating symbolic link for .tcshrc... \n"
 
 
@@ -128,9 +143,9 @@ ln -s "$DOTDIR"/shell/tcsh/tcshrc "$MYHOME"/.tcshrc
 #
 #####################################################
 
-if [ -f "$MYHOME"/.vimrc ] || [ -L "$MYHOME"/.vimrc ];
+if [ -f "$HOME"/.vimrc ] || [ -L "$HOME"/.vimrc ];
 then 
-	rm -r "$MYHOME"/.vimrc
+	rm -r "$HOME"/.vimrc
 #	echo "Cleaning up old .vimrc"
 fi
 
@@ -142,9 +157,9 @@ ln -s "$DOTDIR"/vim/vimrc "$HOME"/.vimrc
 
 # This handles the check for my .vim/ directory
 
-if [ -d "$MYHOME"/.vim ] || [ -L "$MYHOME"/.vim ];
+if [ -d "$HOME"/.vim ] || [ -L "$HOME"/.vim ];
 then 
-	rm -r "$MYHOME"/.vim
+	rm -r "$HOME"/.vim
 fi
 
 ln -s "$DOTDIR"/vim/vim "$HOME"/.vim
@@ -158,27 +173,27 @@ ln -s "$DOTDIR"/vim/vim "$HOME"/.vim
 #                 
 #####################################################
 
-if [ -f "$MYHOME"/.gitconfig ] || [ -L "$MYHOME"/.gitconfig ];
+if [ -f "$HOME"/.gitconfig ] || [ -L "$HOME"/.gitconfig ];
 then 
-	rm -r "$MYHOME"/.gitconfig
+	rm -r "$HOME"/.gitconfig
 fi
 
 ln -s "$DOTDIR"/git/config "$HOME"/.gitconfig
 
 ######################################################
 
-if [ -f "$MYHOME"/.gitignore_global ] || [ -L "$MYHOME"/.gitignore_global ];
+if [ -f "$HOME"/.gitignore_global ] || [ -L "$HOME"/.gitignore_global ];
 then 
-	rm -r "$MYHOME"/.gitignore_global
+	rm -r "$HOME"/.gitignore_global
 fi
 
 ln -s "$DOTDIR"/git/ignore_global "$HOME"/.gitignore_global
 
 #####################################################
 
-if [ -d "$MYHOME"/.config/xfce4 ] || [ -L "$MYHOME"/.config/xfce4 ];
+if [ -d "$HOME"/.config/xfce4 ] || [ -L "$HOME"/.config/xfce4 ];
 then 
-	rm -r "$MYHOME"/.config/xfce4
+	rm -r "$HOME"/.config/xfce4
 fi
 
 ln -s "$DOTDIR"/wm/xfce4 "$HOME"/.config/xfce4
@@ -193,45 +208,45 @@ ln -s "$DOTDIR"/wm/xfce4 "$HOME"/.config/xfce4
 #
 #####################################################
 
-if [ -d "$MYHOME"/.config/i3 ] || [ -L "$MYHOME"/.config/i3 ];
+if [ -d "$HOME"/.config/i3 ] || [ -L "$HOME"/.config/i3 ];
 then 
-	rm -r "$MYHOME"/.config/i3
+	rm -r "$HOME"/.config/i3
 fi
 
 ln -s "$DOTDIR"/wm/i3 "$HOME"/.config/i3
 
 #####################################################
 
-if [ -d "$MYHOME"/.config/bspwm ] || [ -L "$MYHOME"/.config/bspwm ];
+if [ -d "$HOME"/.config/bspwm ] || [ -L "$HOME"/.config/bspwm ];
 then 
-	rm -r "$MYHOME"/.config/bspwm
+	rm -r "$HOME"/.config/bspwm
 fi
 
 ln -s "$DOTDIR"/wm/bspwm "$HOME"/.config/bspwm
 
 #####################################################
 
-if [ -d "$MYHOME"/.config/sxhkd ] || [ -L "$MYHOME"/.config/sxhkd ];
+if [ -d "$HOME"/.config/sxhkd ] || [ -L "$HOME"/.config/sxhkd ];
 then 
-	rm -r "$MYHOME"/.config/sxhkd
+	rm -r "$HOME"/.config/sxhkd
 fi
 
 ln -s "$DOTDIR"/wm/sxhkd "$HOME"/.config/sxhkd
 
 #####################################################
 
-if [ -d "$MYHOME"/.config/compton ] || [ -L "$MYHOME"/.config/compton ];
+if [ -d "$HOME"/.config/compton ] || [ -L "$HOME"/.config/compton ];
 then 
-	rm -r "$MYHOME"/.config/compton
+	rm -r "$HOME"/.config/compton
 fi
 
 ln -s "$DOTDIR"/wm/compton "$HOME"/.config/compton
 
 #####################################################
 
-if [ -f "$MYHOME"/.Xresources ] || [ -L "$MYHOME"/.Xresources ];
+if [ -f "$HOME"/.Xresources ] || [ -L "$HOME"/.Xresources ];
 then 
-	rm -r "$MYHOME"/.Xresources
+	rm -r "$HOME"/.Xresources
 fi
 ln -s "$DOTDIR"/wm/X/Xresources "$HOME"/.Xresources
 #xrdb "$HOME"/.Xresources
@@ -242,16 +257,15 @@ ln -s "$DOTDIR"/wm/X/Xresources "$HOME"/.Xresources
 # Screen
 #
 
-if [ -f "$MYHOME"/.screenrc ] || [ -L "$MYHOME"/.screenrc ];
+if [ -f "$HOME"/.screenrc ] || [ -L "$HOME"/.screenrc ];
 then 
-	rm -r "$MYHOME"/.screenrc
+	rm -r "$HOME"/.screenrc
 fi
 ln -s "$DOTDIR"/shell/screen/screenrc "$HOME"/.screenrc
 
 # Unsetting environment variables / cleaning up
 xrdb "$DOTDIR"/wm/X/Xresources
 
-unset MYHOME
 unset DOTDIR
 unset CURRDIR
 unset UNAME
