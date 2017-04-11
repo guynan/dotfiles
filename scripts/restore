@@ -253,6 +253,14 @@ ln -s "$DOTDIR"/wm/X/Xresources "$HOME"/.Xresources
 
 #####################################################
 
+if [ -f "$HOME"/.config/xthemes ] || [ -L "$HOME"/.config/xthemes ];
+then 
+	rm -r "$HOME"/.config/xthemes
+fi
+ln -s "$DOTDIR"/wm/X/xthemes "$HOME"/.config/xthemes
+
+#####################################################
+
 #
 # Screen
 #
