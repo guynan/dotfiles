@@ -32,6 +32,7 @@ set nocompatible " Required for Vundle
 
 syntax on
 set number
+set cursorline
 " set relativenumber # FUCK I CAN'T DEAL
 "set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 
@@ -68,9 +69,11 @@ if &term == "xfce4-terminal"
 endif
 
 if &term == "screen-256color"
-	colorscheme solarized
+"	colorscheme solarized
+	colorscheme nord 
 else
-	colorscheme monochrome
+"	colorscheme monochrome
+	colorscheme nord
 endif
 
 " Remember to set this to the colour of your terminal
@@ -139,3 +142,11 @@ au BufNewFile,BufRead *.lisp,*.lsp,
     \ set textwidth=79 |
     \ set fileformat=unix |
 
+au BufNewFile,BufRead *.asm,
+    \ set smartindent |
+    \ set expandtab |
+	\ set tabstop=8 |
+    \ set shiftwidth=8 |
+    \ set softtabstop=8 |
+    \ set textwidth=79 |
+    \ set fileformat=unix |
