@@ -86,8 +86,9 @@ URxvt.pointerBlank:         true
 ! 
 
 ! Nord
- #include "INCLUDEHOME/.config/xthemes/nord.x"
+#include "/home/guy/.config/xthemes/nord.x"
 
 ! Solarized
 ! #include "/home/guy/.config/xthemes/solarized.x"
+! #include "/home/guy/.config/xthemes/solarized_light.x"
 
