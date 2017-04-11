@@ -244,12 +244,13 @@ ln -s "$DOTDIR"/wm/compton "$HOME"/.config/compton
 
 #####################################################
 
+sed -i 's@INCLUDEHOME@'"$HOME"'@g' $DOTDIR/wm/X/Xresources
+
 if [ -f "$HOME"/.Xresources ] || [ -L "$HOME"/.Xresources ];
 then 
 	rm -r "$HOME"/.Xresources
 fi
 ln -s "$DOTDIR"/wm/X/Xresources "$HOME"/.Xresources
-#xrdb "$HOME"/.Xresources
 
 #####################################################
 
