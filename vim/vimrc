@@ -60,7 +60,7 @@ set nohlsearch
 "colorscheme monochrome
 "
 " Use the below line to force compat with xterm && screen
-if &term == "xterm" || &term == "screen" || &term == "screen-256color"
+if &term == "xterm" || &term == "screen" || &term == "screen-256color" || &term =="xterm-256color"
 		set t_Co=256
 endif
 
@@ -69,12 +69,20 @@ if &term == "xfce4-terminal"
 endif
 
 if &term == "screen-256color"
-"	colorscheme solarized
-	colorscheme nord 
+	colorscheme solarized
 else
 "	colorscheme monochrome
-	colorscheme nord
+	colorscheme solarized
 endif
+
+" This makes a visible line where 80 characters is 
+if (exists('+colorcolumn'))
+    set colorcolumn=80
+    highlight ColorColumn ctermbg=9
+endif
+
+
+map <C-n> :NERDTreeToggle<CR>
 
 " Remember to set this to the colour of your terminal
 " not what you think the colours should be
@@ -133,6 +141,16 @@ au BufNewFile,BufRead *.c,*.h,
     \ set textwidth=79 |
     \ set fileformat=unix |
 
+au BufNewFile,BufRead *.java,
+    \ set smartindent |
+    \ set noexpandtab |
+    \ set expandtab |
+	\ set tabstop=4 |
+    \ set shiftwidth=4 |
+    \ set softtabstop=4 |
+    \ set textwidth=79 |
+    \ set fileformat=unix |
+
 au BufNewFile,BufRead *.lisp,*.lsp,
     \ set noexpandtab |
     \ set expandtab |
@@ -150,3 +168,4 @@ au BufNewFile,BufRead *.asm,
     \ set softtabstop=8 |
     \ set textwidth=79 |
     \ set fileformat=unix |
+
