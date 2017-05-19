@@ -26,7 +26,7 @@ XTerm*faceName:		xft:Monospace Regular-10
 ! Geometry 
 xterm*c132:			True
 xterm*loginShell:	True
-xterm*internalBorder:	10
+xterm*internalBorder:	15
 xterm*geometry:		80x24
 xterm*deleteIsDEL:	true
 xterm*ScrollBar:	false
@@ -89,6 +89,6 @@ URxvt.pointerBlank:         true
 #include "/home/guy/.config/xthemes/nord.x"
 
 ! Solarized
-! #include "/home/guy/.config/xthemes/solarized.x"
-! #include "/home/guy/.config/xthemes/solarized_light.x"
+!#include "/home/guy/.config/xthemes/solarized.x"
+!#include "/home/guy/.config/xthemes/solarized_light.x"
 
