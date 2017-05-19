@@ -5,34 +5,9 @@
 " best. I do intend this to be well documented.
 
 set nocompatible " Required for Vundle
-
-" Vundle stuff
-"
-" set the runtime path to include Vundle and initialize
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-"Plugin 'VundleVim/Vundle.vim'
-"Plugin 'davidhalter/jedi-vim' " This is python autocomplete...
-
-" This is how to install the plugins `:PluginInstall'
-" to update `:PluginUpdate'. e.g, comment line & update to
-" delete a plugin.
-
-" All of your Plugins must be added before the following line
-"call vundle#end()            " required
-"filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-"End Vundle stuff
-
 syntax on
 set number
-set cursorline
+set cursorline 
 " set relativenumber # FUCK I CAN'T DEAL
 "set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 
@@ -69,10 +44,12 @@ if &term == "xfce4-terminal"
 endif
 
 if &term == "screen-256color"
-	colorscheme solarized
+"	colorscheme solarized
+	colorscheme nord
 else
+	colorscheme nord
 "	colorscheme monochrome
-	colorscheme solarized
+"	colorscheme solarized
 endif
 
 " This makes a visible line where 80 characters is 
