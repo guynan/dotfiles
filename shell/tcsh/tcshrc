@@ -39,19 +39,21 @@ else
 	setenv EDITOR '/usr/bin/vim'
 endif
 
-#
-# Aliases
-#
 
-# This one is to add vim-like exit to shell because cool
-# Possibly also my most used alias
+#Environment variables
+
+set nobeep
+# This is for Lemonbar
+setenv PANEL_FIFO '/tmp/panel-fifo'
+
+
+# Aliases
+
 alias :wq 'exit'
 
 if ($PLATFORM == linux) then
 	alias cc 'gcc' 
 endif
-
-# So used to compiling on cc
 
 # These ones are for work
 alias odoo8 'echo "Changing into work directory" ;\
@@ -104,7 +106,8 @@ alias b '/bin/bash'
 alias pingu 'ping www.google.com'
 alias pydie 'pkill python'
 
-alias battery 'upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "percentage|to\ full" --color=never'
+alias battery 'upower -i /org/freedesktop/UPower/devices/battery_BAT0 | \
+			grep -E "percentage|to\ full" --color=never'
 
 # This makes your screen red bro
 alias night 'xflux -l -36.85 -g 174.8 > /dev/null'
@@ -139,7 +142,10 @@ set     end="%{\033[0m%}" # Don't fuck with this line
 #set prompt="%B%m%b ${white}%c${cyan} >${end} "
 set prompt="${blue}%B%m%b ${white}%c${grey} >${end} "
 
+
+
 # Completions
+
 complete cd 'C/*/d/'
 complete rmdir 'C/*/d/'
 complete alias 'p/1/a/'
@@ -162,6 +168,7 @@ complete python3 'p/*/f:*.py/'
 complete clisp 'p/*/f:*.lisp/'
 complete cc 'p/*/f:*.[cao]/'
 complete javac 'p/*/f:*.java/'
+complete ssh 'p@1@`cut -d " " -f 1 ~/.ssh/known_hosts | sort -u`@'
 #complete gcc 'p/*/f:*.[cao]/'
 complete perl 'p/*/f:*.[pP][lL]/'
 complete gcc \
@@ -178,61 +185,12 @@ complete gcc \
 				nodtdlib static nostdinc undef)"/ \
 			'p/*/f:*.[cao]/' 
 
-#			p/*/f:*.[cao]/
 
-#	c/-f/"(caller-saves cse-follow-jumps delayed-branch \
-#			elide-constructors expensive-optimizations \
-#			float-store force-addr force-mem inline \
-#		   inline-functions keep-inline-functions \
-#		   memoize-lookups no-default-inline \
-#		   no-defer-pop no-function-cse omit-frame-pointer \
-#		   rerun-cse-after-loop schedule-insns \
-#		   schedule-insns2 strength-reduce \
-#		   thread-jumps unroll-all-loops \
-#		   unroll-loops syntax-only all-virtual \
-#		   cond-mismatch dollars-in-identifiers \
-#		   enum-int-equiv no-asm no-builtin \
-#		   no-strict-prototype signed-bitfields \
-#		   signed-char this-is-variable unsigned-bitfields \
-#		   unsigned-char writable-strings call-saved-reg \
-#		   call-used-reg fixed-reg no-common \
-#		   no-gnu-binutils nonnull-objects \
-#		   pcc-struct-return pic PIC shared-data \
-#		   short-enums short-double volatile)"/ \
-#	c/-W/"(all aggregate-return cast-align cast-qual \
-#			   comment conversion enum-clash error format \
-#			   id-clash-len implicit missing-prototypes \
-#			   no-parentheses pointer-arith return-type shadow \
-#			   strict-prototypes switch uninitialized unused \
-#			   write-strings)"/ \
-#
-##	c/-m/"(68000 68020 68881 bitfield fpa nobitfield rtd \
-#		   short c68000 c68020 soft-float g gnu unix fpu \
-#		   no-epilogue)"/ \
-#	c/-d/"(D M N)"/ \
-#	c/-/"(f W vspec v vpath ansi traditional \
-#		  traditional-cpp trigraphs pedantic x o l c g L \
-#		  I D U O O2 C E H B b V M MD MM i dynamic \
-#		  nodtdlib static nostdinc undef)"/ \
-#	c/-l/f:*.a/ \
-#	
-#complete sh 'p/*/f:*.sh/' # Useless
-
-# set a list of hosts
-complete ssh 'p@1@`cut -d " " -f 1 ~/.ssh/known_hosts | sort -u`@'
-
-# Use available commands as arguments
-# complete which 'p/1/c/'
-# complete where 'p/1/c/'
+complete which 'p/1/c/'
+complete where 'p/1/c/'
 complete man 'p/1/c/'
-# complete apropos 'p/1/c/'
+complete apropos 'p/1/c/'
 
-#
-#Environment variables
-#
-
-# This is for Lemonbar
-setenv PANEL_FIFO '/tmp/panel-fifo'
 
 # The "tcsh_root_profile" is a file I added in the root
 # directory of all my OS. Every time the .tcshrc is sourced
@@ -248,8 +206,5 @@ endif
 unset red green yellow blue magenta cyan yellow white end
 unset UNAMESTR PLATFORM
 unset checkxflux checkxfluxbin
-
-# Please read this for more details on OS dependent stuff
-# https://www.over-yonder.net/~fullermd/projects/tcshrc/.tcshrc
 
 # fi
