@@ -262,6 +262,14 @@ ln -s "$DOTDIR"/wm/X/xthemes "$HOME"/.config/xthemes
 
 #####################################################
 
+if [ -f "$HOME"/.config/polybar ] || [ -L "$HOME"/.config/polybar ];
+then 
+	rm -r "$HOME"/.config/polybar
+fi
+ln -s "$DOTDIR"/wm/polybar "$HOME"/.config/polybar
+
+#####################################################
+
 #
 # Screen
 #
