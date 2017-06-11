@@ -190,15 +190,6 @@ fi
 ln -s "$DOTDIR"/git/ignore_global "$HOME"/.gitignore_global
 
 #####################################################
-
-if [ -d "$HOME"/.config/xfce4 ] || [ -L "$HOME"/.config/xfce4 ];
-then 
-	rm -r "$HOME"/.config/xfce4
-fi
-
-ln -s "$DOTDIR"/wm/xfce4 "$HOME"/.config/xfce4
-
-#####################################################
 # __          ____  __    _____ _          __  __ 
 # \ \        / /  \/  |  / ____| |        / _|/ _|
 #  \ \  /\  / /| \  / | | (___ | |_ _   _| |_| |_ 
