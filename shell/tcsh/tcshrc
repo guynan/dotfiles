@@ -46,6 +46,10 @@ set nobeep
 # This is for Lemonbar
 setenv PANEL_FIFO '/tmp/panel-fifo'
 
+# Environment variables for C programming
+setenv CPATH		~/include/
+setenv LIBRARY_PATH	~/lib/
+
 
 # Aliases
 
