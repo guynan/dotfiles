@@ -7,4 +7,4 @@ xfce4/terminal/accels.scm
 # Vim makes this shit
 vim/.vim/.netrwhis*
 vim/vim/.netrwhist
-
+vim/vim/backup/*
