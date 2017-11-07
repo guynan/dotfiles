@@ -13,6 +13,8 @@ set cursorline
 
 set backupdir=~/.vim/backup
 
+set encoding=utf-8
+
 
 " This allows modelines in vim
 set modeline
