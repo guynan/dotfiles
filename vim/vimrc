@@ -12,6 +12,7 @@ set cursorline
 "set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 
 set backupdir=~/.vim/backup
+set noundofile
 
 set encoding=utf-8
 
