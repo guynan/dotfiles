@@ -91,7 +91,7 @@ nnoremap <C-H> <C-W><C-H>
 
 
 " This allows you to exit insert & visual mode by using `;;'
-imap jj <Esc>
+"imap jj <Esc>
 "vmap ;; <Esc>
 
 
