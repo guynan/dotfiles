@@ -188,7 +188,7 @@ complete gcc \
 				traditional-cpp trigraphs pedantic x o l c g L \
 				I D U O O2 C E H B b V M MD MM i dynamic \
 				nodtdlib static nostdinc undef)"/ \
-			'p/*/f:*.[cao]/' 
+			'p/*/f:*.[caho]/' 
 
 
 complete which 'p/1/c/'
