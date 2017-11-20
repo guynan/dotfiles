@@ -91,6 +91,10 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 
+" Disable the stupid help
+inoremap <F1> <NOP>
+noremap <F1> <NOP>
+
 " This allows you to exit insert & visual mode by using `;;'
 "imap jj <Esc>
 "vmap ;; <Esc>
@@ -105,6 +109,15 @@ set fileformat=unix
 
 " Python
 au BufNewFile,BufRead *.py,
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set smartindent |
+    \ set fileformat=unix |
+
+au BufNewFile,BufRead *.xml,
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
