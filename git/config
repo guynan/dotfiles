@@ -1,7 +1,10 @@
 # This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
 	name = Guy Nankivell
 	email = guy.nankivell@solnet.co.nz
+
 [push]
 	default = simple
+
+[color]
+	diff = always

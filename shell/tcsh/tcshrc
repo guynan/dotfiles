@@ -43,6 +43,7 @@ endif
 #Environment variables
 
 set nobeep
+
 # This is for Lemonbar
 setenv PANEL_FIFO '/tmp/panel-fifo'
 
@@ -60,18 +61,13 @@ if ($PLATFORM == linux) then
 	alias cc 'gcc' 
 endif
 
-# These ones are for work
-alias odoo8 'echo "Changing into work directory" ;\
-		cd ~/work/odoo8/; echo "Pulling content";\
-		git pull; echo "Done!"'
-
-alias odoo9 'echo "Changing into work directory";\
-		cd ~/work/odoo9/; echo "Pulling content";\
-		git pull; echo "Done!"'
-
-alias grep 'grep --color=auto'
+alias grep 'grep --color=always'
 alias fgrep 'fgrep --color=auto'
 alias egrep 'egrep --color=auto'
+
+alias less 'less -r'
+
+alias diff 'diff --color=always'
 
 # This adds colours to things like ls and grep 
 # OS dependent stuff
