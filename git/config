@@ -7,4 +7,10 @@
 	default = simple
 
 [color]
+	ui = true
 	diff = always
+	status = always
+	log = always
+
+[core]
+    pager = less -r
