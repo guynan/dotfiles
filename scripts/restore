@@ -30,11 +30,11 @@ ALT_DIR="NO"
 
 # Establish the platform you are working on
 UNAME=`uname`
-if [ "$UNAME" == 'Linux' ]; then
+if [ "$UNAME" = 'Linux' ]; then
    PLATFORM='linux'
-elif [ "$UNAME" == 'FreeBSD' ]; then
+elif [ "$UNAME" = 'FreeBSD' ]; then
    PLATFORM='bsd'
-elif [ "$UNAME" == 'DragonFly' ]; then
+elif [ "$UNAME" = 'DragonFly' ]; then
    PLATFORM='bsd'
 else
 	PLATFORM='bsd'
@@ -272,8 +272,6 @@ fi
 ln -s "$DOTDIR"/shell/screen/screenrc "$HOME"/.screenrc
 
 # Unsetting environment variables / cleaning up
-xrdb "$DOTDIR"/wm/X/Xresources
-
 unset DOTDIR
 unset CURRDIR
 unset UNAME
