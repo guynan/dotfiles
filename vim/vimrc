@@ -126,6 +126,14 @@ au BufNewFile,BufRead *.xml,
     \ set smartindent |
     \ set fileformat=unix |
 
+au BufNewFile,BufRead *.html,
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set expandtab |
+    \ set smartindent |
+    \ set fileformat=unix |
+
 au BufNewFile,BufRead *.c,*.h,
     \ set smartindent |
     \ set noexpandtab |
