@@ -61,13 +61,13 @@ if ($PLATFORM == linux) then
 	alias cc 'gcc' 
 endif
 
-alias grep 'grep --color=always'
-alias fgrep 'fgrep --color=auto'
-alias egrep 'egrep --color=auto'
+alias grep		'grep --color=always'
+alias fgrep		'fgrep --color=auto'
+alias egrep		'egrep --color=auto'
 
-alias less 'less -r'
+alias less		'less -r'
 
-alias diff 'diff --color=always'
+alias diff		'diff --color=always'
 
 # This adds colours to things like ls and grep 
 # OS dependent stuff
@@ -101,14 +101,12 @@ else if ( $PLATFORM == 'mac' ) then
 endif
 
 # Here are some other additions to keep me sane
-alias free 'free -m'
-alias vol 'alsamixer'
-alias b '/bin/bash'
-alias pingu 'ping www.google.com'
-alias pydie 'pkill python'
-
-alias battery 'upower -i /org/freedesktop/UPower/devices/battery_BAT0 | \
-			grep -E "percentage|to\ full" --color=never'
+alias free		'free -m'
+alias vol		'alsamixer'
+alias b			'/bin/bash'
+alias pingu		'ping www.google.com'
+alias pydie		'pkill python'
+alias llog		'ls *.log | sort -g | tail -1 | xargs tail -f'
 
 # This makes your screen red bro
 alias night 'xflux -l -36.85 -g 174.8 > /dev/null'
