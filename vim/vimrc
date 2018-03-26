@@ -9,7 +9,6 @@ syntax on
 set number
 set cursorline 
 " set relativenumber # FUCK I CAN'T DEAL
-"set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 
 set backupdir=~/.vim/backup
 set noundofile
@@ -34,28 +33,18 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 " Make it such that when you search there is no highlighting
 set nohlsearch
 
+" Use the below line to force compat with xterm && screen
+set t_Co=256
+
 " To set the colorscheme 
+
 "colorscheme solarized
+colorscheme nord
+"colorscheme monochrome
+"colorscheme nofrills-light
 "colorscheme 256_noir
 "colorscheme monochrome
 "
-" Use the below line to force compat with xterm && screen
-if &term == "xterm" || &term == "screen" || &term == "screen-256color" || &term =="xterm-256color"
-		set t_Co=256
-endif
-
-if &term == "xfce4-terminal"
-	set t_Co=16
-endif
-
-if &term == "screen-256color"
-"	colorscheme solarized
-	colorscheme nord
-else
-	colorscheme nord
-"	colorscheme monochrome
-"	colorscheme solarized
-endif
 
 " This makes a visible line where 80 characters is 
 if (exists('+colorcolumn'))
@@ -69,7 +58,7 @@ map <C-n> :NERDTreeToggle<CR>
 " Remember to set this to the colour of your terminal
 " not what you think the colours should be
 "
-"let g:solarized_termcolors=256
+let g:solarized_termcolors=256
 "set background=light
 set background=dark
 
@@ -135,6 +124,16 @@ au BufNewFile,BufRead *.html,
     \ set fileformat=unix |
 
 au BufNewFile,BufRead *.c,*.h,
+    \ set smartindent |
+    \ set noexpandtab |
+    \ set expandtab |
+	\ set tabstop=8 |
+    \ set shiftwidth=8 |
+    \ set softtabstop=8 |
+    \ set textwidth=79 |
+    \ set fileformat=unix |
+
+au BufNewFile,BufRead *.f95,*.for,
     \ set smartindent |
     \ set noexpandtab |
     \ set expandtab |
