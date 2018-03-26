@@ -39,7 +39,8 @@ set t_Co=256
 " To set the colorscheme 
 
 "colorscheme solarized
-colorscheme nord
+colorscheme inkstained
+"colorscheme nord
 "colorscheme monochrome
 "colorscheme nofrills-light
 "colorscheme 256_noir
@@ -60,7 +61,7 @@ map <C-n> :NERDTreeToggle<CR>
 "
 let g:solarized_termcolors=256
 "set background=light
-set background=dark
+"set background=dark
 
 " Here I disabled the arrow keys so that I use hjkl
 inoremap <Up> <NOP>
