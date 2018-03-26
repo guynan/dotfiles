@@ -1,42 +1,57 @@
-" Guy Nankivell, 2022
+"
+" Guy Nankivell, .vimrc, 2017
+"
 
-" This is my .vimrc. Pretty much a work in 
-" progress as I learn what suits my workflow
-" best. I do intend this to be well documented.
+"
+" Language specific attributes - some must be set before `syntax on`
+"
+
+" C
+let c_space_errors = 1
+
+" Fortran
+let fortran_free_source=1
+let fortran_have_tabs=1
+let fortran_more_precise=1
+
+" End language specific attributes
+
+"
+" Fundamental VIM settings
+"
 
 set nocompatible " Required for Vundle
 syntax on
 set number
 set cursorline 
-" set relativenumber # FUCK I CAN'T DEAL
-
-set backupdir=~/.vim/backup
-set noundofile
-
 set encoding=utf-8
-
-
-" This allows modelines in vim
-set modeline
-" This is super helpful. Initialise by {{{ in comment
-" and terminate by }}} in another comment. 
-set foldmethod=marker " can also fold by indent
-
-" This adds virtual line navigation as opposed 
-" to the usual line by line vim method
-noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
-
-" This remaps bg <enter> to toggle the background colour
-"map bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 " Make it such that when you search there is no highlighting
 set nohlsearch
 
+" Move the backup files to a designated directory
+set backupdir=~/.vim/backup
+set noundofile
+
+" This allows modelines in vim
+set modeline
+
+" This makes a visible line where 80 characters is
+if (exists('+colorcolumn'))
+    set colorcolumn=80
+    highlight ColorColumn ctermbg=9
+endif
+
+" This is super helpful. Initialise by {{{ in comment
+" and terminate by }}} in another comment. 
+set foldmethod=marker " can also fold by indent
+
+"
+" Colorscheme Modifications
+"
+
 " Use the below line to force compat with xterm && screen
 set t_Co=256
-
-" To set the colorscheme 
 
 "colorscheme solarized
 colorscheme inkstained
@@ -46,22 +61,17 @@ colorscheme inkstained
 "colorscheme 256_noir
 "colorscheme monochrome
 "
-
-" This makes a visible line where 80 characters is 
-if (exists('+colorcolumn'))
-    set colorcolumn=80
-    highlight ColorColumn ctermbg=9
-endif
-
-
-map <C-n> :NERDTreeToggle<CR>
-
-" Remember to set this to the colour of your terminal
-" not what you think the colours should be
-"
 let g:solarized_termcolors=256
-"set background=light
-"set background=dark
+
+
+"
+" Remappings for keyboard bindings
+"
+
+" This adds virtual line navigation as opposed 
+" to the usual line by line vim method
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 " Here I disabled the arrow keys so that I use hjkl
 inoremap <Up> <NOP>
@@ -81,6 +91,9 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 
+" Nerdtree toggle mapping
+map <C-n> :NERDTreeToggle<CR>
+
 " Disable the stupid help
 inoremap <F1> <NOP>
 noremap <F1> <NOP>
@@ -89,9 +102,17 @@ noremap <F1> <NOP>
 "imap jj <Esc>
 "vmap ;; <Esc>
 
+" This remaps bg <enter> to toggle the background colour
+"map bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
+"
+" End Keyboard mapping changes
+"
+
+"
 " Language Specific indentation tab vs space etc...
 "
+
 " Default
 set tabstop=4
 set softtabstop=4
