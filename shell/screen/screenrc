@@ -1,7 +1,5 @@
 startup_message off
 defscrollback 5000
-termcapinfo xterm ti@:te@
-termcapinfo xterm-color ti@:te@
 hardstatus alwayslastline
 # Default
 #hardstatus string '%{gk}[%{G}%H%{g}][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}]%{=b C}[%m/%d/%y %C %A]%{W}'
@@ -11,6 +9,7 @@ shell -$SHELL
 logtstamp on
 logtstamp after 1
 term screen-256color
+defbce "on"
  
 altscreen on 
 
@@ -31,5 +30,4 @@ hardstatus string '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u
 #screen -t Shell2  2 bash
 #screen -t Python  3 python
 #screen -t Media   4 bash
-termcapinfo xterm* ti@:te@
 
