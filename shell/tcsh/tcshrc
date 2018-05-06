@@ -47,15 +47,6 @@ set nobeep
 # This is for Lemonbar
 setenv PANEL_FIFO '/tmp/panel-fifo'
 
-# This is for Lemonbar
-setenv TERM xterm-256color
-
-# Environment variables for C programming
-setenv CPATH		~/include/
-setenv LIBRARY_PATH	~/lib/
-setenv LD_LIBRARY_PATH ~/lib/
-
-
 # Aliases
 
 alias :wq 'exit'
@@ -202,6 +193,10 @@ complete apropos 'p/1/c/'
 
 if ( -f $HOME/.tcsh_root_profile) then
 	source $HOME/.tcsh_root_profile
+endif
+
+if ( -f $HOME/.uni.tcsh) then
+	source $HOME/.uni.tcsh
 endif
 
 # Clean up

@@ -27,6 +27,26 @@ ALT_DIR="NO"
 #	esac
 #done
 
+usage()
+{
+	echo "Usage: ./restore [ -l <work|uni> ]";
+	exit 1;
+}
+
+
+while getopts ":l:" o; do
+    case "${o}" in
+        l)
+            LOCATION=${OPTARG}
+			([[ "${LOCATION}" = "work" || "${LOCATION}" = "uni" ]]) || usage
+            ;;
+        *)
+            usage
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
 
 # Establish the platform you are working on
 UNAME=`uname`
@@ -122,8 +142,19 @@ then
 	rm -r "$HOME"/.tcshrc
 fi
 
+if [ -L "$HOME"/.uni.tcsh ] || [ -f "$HOME"/.uni.tcsh ];
+then 
+	rm -r "$HOME"/.uni.tcsh
+fi
+
 # This creates the symbolic link for my .tcshrc
 ln -s "$DOTDIR"/shell/tcsh/tcshrc "$HOME"/.tcshrc
+
+if [[ "${LOCATION}" = "uni" ]];
+then
+	ln -s "$DOTDIR"/shell/tcsh/uni.tcsh "$HOME"/.uni.tcsh
+fi
+
 
 # Important to source it so changes take effect without
 # logging into the shell again
@@ -269,6 +300,7 @@ if [ -f "$HOME"/.screenrc ] || [ -L "$HOME"/.screenrc ];
 then 
 	rm -r "$HOME"/.screenrc
 fi
+
 ln -s "$DOTDIR"/shell/screen/screenrc "$HOME"/.screenrc
 
 # Unsetting environment variables / cleaning up
@@ -278,10 +310,4 @@ unset UNAME
 unset PLATFORM
 unset DISTRO
 unset DIR
-exit
-if [ -f /bin/tcsh ]
-then
-	/bin/tcsh
-	source "$HOME"/.tcshrc
-fi
 
