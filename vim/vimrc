@@ -54,8 +54,8 @@ set foldmethod=marker " can also fold by indent
 set t_Co=256
 
 "colorscheme solarized
-colorscheme inkstained
-"colorscheme nord
+"colorscheme inkstained
+colorscheme nord
 "colorscheme monochrome
 "colorscheme nofrills-light
 "colorscheme 256_noir
