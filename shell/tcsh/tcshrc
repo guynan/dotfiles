@@ -32,12 +32,9 @@ bindkey -v
 # Allows for tab-completion 
 set autolist
 
-# Make sure the EDITOR is accurate
-if ($PLATFORM == bsd || $PLATFORM == obsd) then
-	setenv EDITOR '/usr/bin/vi'
-else
-	setenv EDITOR '/usr/bin/vim'
-endif
+setenv EDITOR '/usr/bin/vi'
+
+setenv PATH $PATH\:$HOME/.cargo/bin
 
 
 #Environment variables
