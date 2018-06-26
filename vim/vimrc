@@ -25,6 +25,7 @@ syntax on
 set number
 set cursorline 
 set encoding=utf-8
+set mouse=a
 
 " Make it such that when you search there is no highlighting
 set nohlsearch
