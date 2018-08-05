@@ -1,5 +1,6 @@
 # Vim swap files
 *.swp
+*.pyc
 
 # Some terminal thingy
 xfce4/terminal/accels.scm
@@ -8,3 +9,4 @@ xfce4/terminal/accels.scm
 vim/.vim/.netrwhis*
 vim/vim/.netrwhist
 vim/vim/backup/*
+
