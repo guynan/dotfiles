@@ -203,3 +203,11 @@ au BufNewFile,BufRead *.rs,
     \ set textwidth=79 |
     \ set fileformat=unix |
 
+au BufNewFile,BufRead *.fs,
+    \ set autoindent |
+    \ set expandtab |
+	\ set tabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set fileformat=unix |
+
